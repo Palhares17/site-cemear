@@ -1,0 +1,236 @@
+/* === TailwindCSS v4 — CEMEAR Design System === */
+@import "tailwindcss";
+
+/* --- Custom Theme (TailwindCSS v4 CSS-based config) --- */
+@theme {
+  /* Brand Colors */
+  --color-cemear-green: #71b561;
+  --color-cemear-green-light: #e8f5e4;
+  --color-cemear-green-dark: #5a9a4d;
+  --color-cemear-teal: #19a287;
+  --color-cemear-teal-light: #e0f5f1;
+  --color-cemear-teal-dark: #148570;
+  --color-cemear-purple: #391b68;
+  --color-cemear-purple-light: #ede7f6;
+  --color-cemear-purple-dark: #2a1050;
+  --color-gray-50: #f9fafb;
+  --color-gray-100: #f3f4f6;
+  --color-gray-200: #e5e7eb;
+  --color-gray-300: #d1d5db;
+  --color-gray-400: #9ca3af;
+  --color-gray-500: #6b7280;
+  --color-gray-600: #4b5563;
+  --color-gray-700: #374151;
+  --color-gray-800: #1f2937;
+  --color-gray-900: #111827;
+
+  /* Typography */
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+
+  /* Custom Spacing for large sections */
+  --spacing-18: 4.5rem;
+  --spacing-22: 5.5rem;
+  --spacing-88: 22rem;
+  --spacing-100: 25rem;
+  --spacing-120: 30rem;
+}
+
+/* --- Base Styles --- */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    color: var(--color-gray-800);
+    background-color: #ffffff;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: var(--color-cemear-purple);
+    color: #ffffff;
+  }
+
+  /* Smooth reveal class for GSAP */
+  .gsap-reveal {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  /* Accessibility: reduce motion fallback */
+  @media (prefers-reduced-motion: reduce) {
+    .gsap-reveal {
+      opacity: 1;
+      transform: none;
+    }
+  }
+}
+
+/* --- Component Styles --- */
+@layer components {
+  /* Gradient hero background */
+  .hero-gradient {
+    background: linear-gradient(
+      135deg,
+      var(--color-cemear-purple) 0%,
+      var(--color-cemear-purple-dark) 40%,
+      var(--color-cemear-teal) 100%
+    );
+  }
+
+  /* Subtle glass card */
+  .glass-card {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  /* Step connector line */
+  .step-connector {
+    position: relative;
+  }
+  .step-connector::after {
+    content: "";
+    position: absolute;
+    top: 2rem;
+    right: -1.5rem;
+    width: 3rem;
+    height: 2px;
+    background: linear-gradient(
+      90deg,
+      var(--color-cemear-teal),
+      var(--color-cemear-green)
+    );
+  }
+  @media (max-width: 767px) {
+    .step-connector::after {
+      display: none;
+    }
+  }
+
+  /* Animated underline for links */
+  .nav-link {
+    position: relative;
+  }
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: var(--color-cemear-teal);
+    transition: width 0.3s ease;
+  }
+  .nav-link:hover::after {
+    width: 100%;
+  }
+
+  /* CTA button with micro-animation */
+  .btn-primary {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 14px rgba(57, 27, 104, 0.25);
+  }
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(57, 27, 104, 0.35);
+  }
+  .btn-primary:active {
+    transform: translateY(0);
+  }
+
+  .btn-secondary {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 10px rgba(25, 162, 135, 0.2);
+  }
+  .btn-secondary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(25, 162, 135, 0.3);
+  }
+
+  /* Section divider wave */
+  .section-divider {
+    position: relative;
+  }
+  .section-divider::before {
+    content: "";
+    position: absolute;
+    top: -60px;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: inherit;
+    clip-path: ellipse(55% 100% at 50% 100%);
+  }
+
+  /* Stat counter highlight */
+  .stat-highlight {
+    background: linear-gradient(
+      135deg,
+      var(--color-cemear-green) 0%,
+      var(--color-cemear-teal) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Area card hover effect */
+  .area-card {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid var(--color-gray-200);
+  }
+  .area-card:hover {
+    border-color: var(--color-cemear-teal);
+    box-shadow: 0 12px 40px rgba(25, 162, 135, 0.12);
+    transform: translateY(-6px);
+  }
+
+  /* Differential card */
+  .diff-card {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .diff-card:hover {
+    box-shadow: 0 16px 48px rgba(57, 27, 104, 0.1);
+    transform: translateY(-4px);
+  }
+
+  /* Floating badge */
+  .badge-sus {
+    background: linear-gradient(
+      135deg,
+      var(--color-cemear-green) 0%,
+      var(--color-cemear-teal) 100%
+    );
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
+  }
+
+  /* Hamburger menu animation */
+  .hamburger-line {
+    transition: all 0.3s ease;
+  }
+  .hamburger-active .hamburger-line:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  .hamburger-active .hamburger-line:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger-active .hamburger-line:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+  }
+}
