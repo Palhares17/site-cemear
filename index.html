@@ -38,21 +38,63 @@
         "@context": "https://schema.org",
         "@type": "MedicalOrganization",
         "name": "CEMEAR",
-        "description": "Centro Especializado em Diagnóstico e Reabilitação Auditiva — Referência Estadual pelo SUS",
+        "alternateName": "Centro Especializado em Diagnóstico e Reabilitação Auditiva",
+        "description": "Centro Especializado em Diagnóstico e Reabilitação Auditiva — Referência Estadual pelo SUS desde 2006",
         "url": "https://cemear.org.br",
         "foundingDate": "2006",
-        "medicalSpecialty": "Audiologia",
+        "nonprofitStatus": "Nonprofit",
+        "medicalSpecialty": ["Audiologia", "Otolaryngology"],
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Belo Horizonte",
+          "addressRegion": "MG",
+          "addressCountry": "BR"
+        },
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+            "opens": "07:00",
+            "closes": "17:00"
+          }
+        ],
+        "priceRange": "Gratuito — SUS",
         "availableService": [
-          { "@type": "MedicalProcedure", "name": "Diagnóstico Auditivo" },
-          { "@type": "MedicalProcedure", "name": "Reabilitação Auditiva" },
+          {
+            "@type": "MedicalProcedure",
+            "name": "Diagnóstico Auditivo",
+            "url": "https://cemear.org.br/exame-auditivo-sus.html"
+          },
+          {
+            "@type": "MedicalProcedure",
+            "name": "Reabilitação Auditiva e Aparelho Auditivo",
+            "url": "https://cemear.org.br/aparelho-auditivo-sus.html"
+          },
           {
             "@type": "MedicalProcedure",
             "name": "Processamento Auditivo Central"
           },
-          { "@type": "MedicalProcedure", "name": "Reabilitação Vestibular" }
+          {
+            "@type": "MedicalProcedure",
+            "name": "Reabilitação Vestibular"
+          }
+        ],
+        "sameAs": [
+          "https://www.instagram.com/cemearreabilitacaoauditiva",
+          "https://www.facebook.com/cemearreabilitacaoauditiva"
         ]
       }
     </script>
+    <!-- Google Analytics 4 — INSTRUÇÃO: substitua G-XXXXXXXXXX pelo seu Measurement ID
+         Para configurar: analytics.google.com → Admin → Data Streams → Web → Measurement ID
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    -->
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <link rel="stylesheet" href="/src/style.css" />
   </head>
@@ -312,6 +354,9 @@
                 src="/image.webp"
                 alt="Profissional CEMEAR em atendimento auditivo"
                 class="w-full h-auto rounded-3xl shadow-2xl object-cover"
+                width="640"
+                height="640"
+                fetchpriority="high"
               />
             </div>
           </div>
@@ -1552,34 +1597,29 @@
               Navegação
             </h4>
             <nav class="flex flex-col gap-3">
-              <a
-                href="#sobre"
-                class="text-gray-400 hover:text-white text-sm transition-colors"
-                >Sobre</a
-              >
-              <a
-                href="#atendimento"
-                class="text-gray-400 hover:text-white text-sm transition-colors"
-                >Atendimento</a
-              >
-              <a
-                href="#areas"
-                class="text-gray-400 hover:text-white text-sm transition-colors"
-                >Áreas de Atuação</a
-              >
-              <a
-                href="#diferenciais"
-                class="text-gray-400 hover:text-white text-sm transition-colors"
-                >Diferenciais</a
-              >
-              <a
-                href="#institucional"
-                class="text-gray-400 hover:text-white text-sm transition-colors"
-                >Institucional</a
-              >
+              <a href="#sobre" class="text-gray-400 hover:text-white text-sm transition-colors">Sobre</a>
+              <a href="#atendimento" class="text-gray-400 hover:text-white text-sm transition-colors">Atendimento</a>
+              <a href="#areas" class="text-gray-400 hover:text-white text-sm transition-colors">Áreas de Atuação</a>
+              <a href="#equipe" class="text-gray-400 hover:text-white text-sm transition-colors">Equipe</a>
+              <a href="#localizacao" class="text-gray-400 hover:text-white text-sm transition-colors">Localização</a>
+              <a href="#faq" class="text-gray-400 hover:text-white text-sm transition-colors">Perguntas Frequentes</a>
             </nav>
           </div>
-          <!-- Col 3: Contact -->
+          <!-- Col 3: Serviços -->
+          <div>
+            <h4
+              class="text-sm font-semibold uppercase tracking-widest text-gray-400 mb-5"
+            >
+              Serviços
+            </h4>
+            <nav class="flex flex-col gap-3">
+              <a href="/exame-auditivo-sus.html" class="text-gray-400 hover:text-white text-sm transition-colors">Exame Auditivo pelo SUS</a>
+              <a href="/aparelho-auditivo-sus.html" class="text-gray-400 hover:text-white text-sm transition-colors">Aparelho Auditivo pelo SUS</a>
+              <a href="/reabilitacao-auditiva-sus.html" class="text-gray-400 hover:text-white text-sm transition-colors">Reabilitação Auditiva</a>
+              <a href="/politica-de-privacidade.html" class="text-gray-400 hover:text-white text-sm transition-colors" rel="privacy-policy">Política de Privacidade</a>
+            </nav>
+          </div>
+          <!-- Col 4: Contact -->
           <div>
             <h4
               class="text-sm font-semibold uppercase tracking-widest text-gray-400 mb-5"
@@ -1599,9 +1639,18 @@
           <p class="text-gray-500 text-xs">
             &copy; 2006–2026 CEMEAR. Todos os direitos reservados.
           </p>
-          <p class="text-gray-600 text-xs">
-            Associação sem fins lucrativos • CNPJ: XX.XXX.XXX/0001-XX
-          </p>
+          <div class="flex items-center gap-4 flex-wrap justify-center">
+            <a
+              href="/politica-de-privacidade.html"
+              class="text-gray-500 hover:text-gray-300 text-xs transition-colors"
+              rel="privacy-policy"
+              >Política de Privacidade</a
+            >
+            <span class="text-gray-700 text-xs">•</span>
+            <p class="text-gray-600 text-xs">
+              Associação sem fins lucrativos • CNPJ: XX.XXX.XXX/0001-XX
+            </p>
+          </div>
         </div>
       </div>
     </footer>

@@ -151,6 +151,34 @@ function initParallax(): void {
 }
 
 // ──────────────────────────────────────────────
+// 7. GA4 Conversion Tracking
+// Dispara evento quando usuário clica em CTAs principais
+// ──────────────────────────────────────────────
+function initConversionTracking(): void {
+  const ctaSelectors = [
+    "#hero-cta",
+    'a[href="#atendimento"]',
+    'a[href="#contato"]',
+    'a[href="#localizacao"]',
+  ];
+
+  ctaSelectors.forEach((selector) => {
+    document.querySelectorAll<HTMLElement>(selector).forEach((el) => {
+      el.addEventListener("click", () => {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const w = window as any;
+        if (typeof w.gtag === "function") {
+          w.gtag("event", "cta_click", {
+            event_category: "engagement",
+            event_label: el.textContent?.trim() ?? selector,
+          });
+        }
+      });
+    });
+  });
+}
+
+// ──────────────────────────────────────────────
 // Initialize everything on DOM ready
 // ──────────────────────────────────────────────
 document.addEventListener("DOMContentLoaded", () => {
@@ -160,4 +188,5 @@ document.addEventListener("DOMContentLoaded", () => {
   initMobileMenu();
   initSmoothScroll();
   initParallax();
+  initConversionTracking();
 });
