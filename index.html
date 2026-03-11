@@ -115,9 +115,14 @@
             >Diferenciais</a
           >
           <a
-            href="#institucional"
+            href="#equipe"
             class="nav-link text-sm font-medium text-gray-600 hover:text-cemear-purple transition-colors"
-            >Institucional</a
+            >Equipe</a
+          >
+          <a
+            href="#localizacao"
+            class="nav-link text-sm font-medium text-gray-600 hover:text-cemear-purple transition-colors"
+            >Localização</a
           >
           <a
             href="#contato"
@@ -185,9 +190,14 @@
             >Diferenciais</a
           >
           <a
-            href="#institucional"
+            href="#equipe"
             class="mobile-nav-link text-base font-medium text-gray-700 hover:text-cemear-purple py-2 border-b border-gray-100"
-            >Institucional</a
+            >Equipe</a
+          >
+          <a
+            href="#localizacao"
+            class="mobile-nav-link text-base font-medium text-gray-700 hover:text-cemear-purple py-2 border-b border-gray-100"
+            >Localização</a
           >
           <a
             href="#contato"
@@ -230,67 +240,79 @@
         </div>
 
         <div
-          class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10 py-32 lg:py-0"
+          class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10 py-32 lg:py-24"
         >
-          <div class="max-w-3xl">
-            <!-- SUS Badge -->
-            <div
-              class="gsap-reveal inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-5 py-2 mb-8"
-            >
-              <span
-                class="w-2 h-2 rounded-full bg-cemear-green animate-pulse"
-              ></span>
-              <span class="text-white/90 text-sm font-medium"
-                >100% pelo SUS — Serviço de Referência Estadual</span
+          <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <!-- Texto (esquerda no desktop) -->
+            <div class="order-1 lg:order-1">
+              <!-- SUS Badge -->
+              <div
+                class="gsap-reveal inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-5 py-2 mb-8"
               >
+                <span
+                  class="w-2 h-2 rounded-full bg-cemear-green animate-pulse"
+                ></span>
+                <span class="text-white/90 text-sm font-medium"
+                  >100% pelo SUS — Serviço de Referência Estadual</span
+                >
+              </div>
+
+              <h1
+                class="gsap-reveal text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-white leading-[1.08] tracking-tight mb-6"
+              >
+                Cuidar da sua <br class="hidden md:block" />
+                <span
+                  class="bg-gradient-to-r from-cemear-green to-cemear-teal bg-clip-text text-transparent"
+                  >audição</span
+                >
+                é cuidar <br class="hidden md:block" />da sua vida.
+              </h1>
+
+              <p
+                class="gsap-reveal text-lg md:text-xl text-white/80 leading-relaxed mb-10 max-w-xl"
+              >
+                Desde 2006, o CEMEAR é referência em diagnóstico e reabilitação
+                auditiva, com atendimento interdisciplinar, humanizado e baseado
+                em evidências científicas.
+              </p>
+
+              <div class="gsap-reveal flex flex-col sm:flex-row gap-4">
+                <a
+                  href="#atendimento"
+                  id="hero-cta"
+                  class="btn-primary inline-flex items-center justify-center gap-3 bg-white text-cemear-purple px-8 py-4 rounded-full text-base font-bold hover:bg-cemear-green-light"
+                >
+                  Entenda como funciona
+                  <svg
+                    class="w-5 h-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3"
+                    />
+                  </svg>
+                </a>
+                <a
+                  href="#sobre"
+                  class="btn-secondary inline-flex items-center justify-center gap-3 border-2 border-white/40 text-white px-8 py-4 rounded-full text-base font-semibold hover:bg-white/10"
+                >
+                  Conheça o CEMEAR
+                </a>
+              </div>
             </div>
 
-            <h1
-              class="gsap-reveal text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-white leading-[1.08] tracking-tight mb-6"
-            >
-              Cuidar da sua <br class="hidden md:block" />
-              <span
-                class="bg-gradient-to-r from-cemear-green to-cemear-teal bg-clip-text text-transparent"
-                >audição</span
-              >
-              é cuidar <br class="hidden md:block" />da sua vida.
-            </h1>
-
-            <p
-              class="gsap-reveal text-lg md:text-xl text-white/80 leading-relaxed mb-10 max-w-xl"
-            >
-              Desde 2006, o CEMEAR é referência em diagnóstico e reabilitação
-              auditiva, com atendimento interdisciplinar, humanizado e baseado
-              em evidências científicas.
-            </p>
-
-            <div class="gsap-reveal flex flex-col sm:flex-row gap-4">
-              <a
-                href="#atendimento"
-                id="hero-cta"
-                class="btn-primary inline-flex items-center justify-center gap-3 bg-white text-cemear-purple px-8 py-4 rounded-full text-base font-bold hover:bg-cemear-green-light"
-              >
-                Entenda como funciona
-                <svg
-                  class="w-5 h-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3"
-                  />
-                </svg>
-              </a>
-              <a
-                href="#sobre"
-                class="btn-secondary inline-flex items-center justify-center gap-3 border-2 border-white/40 text-white px-8 py-4 rounded-full text-base font-semibold hover:bg-white/10"
-              >
-                Conheça o CEMEAR
-              </a>
+            <!-- Imagem (direita no desktop) -->
+            <div class="gsap-reveal hidden lg:flex order-2 lg:order-2 items-center justify-center">
+              <img
+                src="/image.webp"
+                alt="Profissional CEMEAR em atendimento auditivo"
+                class="w-full h-auto rounded-3xl shadow-2xl object-cover"
+              />
             </div>
           </div>
         </div>
@@ -350,6 +372,13 @@
                   promovendo a inclusão social e a melhoria da qualidade de
                   vida.
                 </p>
+              </div>
+              <!-- Quote de missão -->
+              <div class="gsap-reveal mt-8 border-l-4 border-cemear-teal pl-6 py-2">
+                <p class="text-lg font-medium text-gray-800 italic leading-relaxed">
+                  "Ouvir é um direito. Comunicação é dignidade e autonomia."
+                </p>
+                <span class="text-sm text-cemear-teal font-semibold mt-2 block">— Missão CEMEAR</span>
               </div>
             </div>
             <!-- Right: visual highlight card -->
@@ -447,6 +476,43 @@
                       </p>
                     </div>
                   </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Timeline -->
+          <div class="gsap-reveal mt-16 lg:mt-20">
+            <div class="relative">
+              <div class="absolute left-0 right-0 top-6 h-0.5 bg-gray-100 hidden lg:block"></div>
+              <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center relative">
+                  <div class="w-12 h-12 rounded-full bg-cemear-teal text-white font-extrabold text-sm flex items-center justify-center mx-auto mb-4 relative z-10 shadow-md">
+                    2006
+                  </div>
+                  <h4 class="font-bold text-gray-900 text-sm mb-1">Fundação</h4>
+                  <p class="text-gray-500 text-xs leading-relaxed">Criação do CEMEAR como associação sem fins lucrativos em Belo Horizonte.</p>
+                </div>
+                <div class="text-center relative">
+                  <div class="w-12 h-12 rounded-full bg-cemear-teal text-white font-extrabold text-sm flex items-center justify-center mx-auto mb-4 relative z-10 shadow-md">
+                    2009
+                  </div>
+                  <h4 class="font-bold text-gray-900 text-sm mb-1">Referência Estadual</h4>
+                  <p class="text-gray-500 text-xs leading-relaxed">Reconhecimento como Serviço de Referência Estadual em saúde auditiva pelo SUS.</p>
+                </div>
+                <div class="text-center relative">
+                  <div class="w-12 h-12 rounded-full bg-cemear-green text-white font-extrabold text-sm flex items-center justify-center mx-auto mb-4 relative z-10 shadow-md">
+                    2016
+                  </div>
+                  <h4 class="font-bold text-gray-900 text-sm mb-1">Expansão</h4>
+                  <p class="text-gray-500 text-xs leading-relaxed">Ampliação das áreas de atuação com reabilitação vestibular e processamento auditivo.</p>
+                </div>
+                <div class="text-center relative">
+                  <div class="w-12 h-12 rounded-full bg-cemear-purple text-white font-extrabold text-sm flex items-center justify-center mx-auto mb-4 relative z-10 shadow-md">
+                    Hoje
+                  </div>
+                  <h4 class="font-bold text-gray-900 text-sm mb-1">Referência Nacional</h4>
+                  <p class="text-gray-500 text-xs leading-relaxed">+18 anos de excelência, formação de profissionais e pesquisa científica em audiologia.</p>
                 </div>
               </div>
             </div>
@@ -907,6 +973,148 @@
         </div>
       </section>
 
+      <!-- ═══════════════════════ 6. EQUIPE ═══════════════════════ -->
+      <section id="equipe" class="py-24 lg:py-32 bg-white scroll-mt-20">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+          <div class="text-center max-w-2xl mx-auto mb-16 lg:mb-20">
+            <span
+              class="gsap-reveal inline-block text-cemear-teal font-semibold text-sm uppercase tracking-widest mb-4"
+              >Quem cuida de você</span
+            >
+            <h2
+              class="gsap-reveal text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mb-5"
+            >
+              Nossa <span class="text-cemear-purple">equipe</span>
+            </h2>
+            <p class="gsap-reveal text-gray-500 text-lg">
+              Profissionais especializados que atuam de forma integrada para
+              garantir o melhor cuidado em saúde auditiva.
+            </p>
+          </div>
+
+          <!-- Cards de membros -->
+          <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mb-14">
+            <!-- Membro 1 -->
+            <div class="gsap-reveal text-center group">
+              <div
+                class="w-full aspect-square rounded-2xl bg-cemear-teal-light flex flex-col items-center justify-center mb-4 overflow-hidden relative"
+              >
+                <svg class="w-20 h-20 text-cemear-teal/30" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                </svg>
+                <span class="absolute bottom-3 bg-cemear-teal text-white text-xs font-semibold px-3 py-1 rounded-full">Fonoaudiologia</span>
+              </div>
+              <h3 class="font-bold text-gray-900 text-base">Coordenadora</h3>
+              <p class="text-sm text-cemear-teal font-medium">Fonoaudióloga</p>
+              <p class="text-xs text-gray-400 mt-1">Diagnóstico &amp; Reabilitação</p>
+            </div>
+            <!-- Membro 2 -->
+            <div class="gsap-reveal text-center group">
+              <div
+                class="w-full aspect-square rounded-2xl bg-cemear-teal-light flex flex-col items-center justify-center mb-4 overflow-hidden relative"
+              >
+                <svg class="w-20 h-20 text-cemear-teal/30" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                </svg>
+                <span class="absolute bottom-3 bg-cemear-teal text-white text-xs font-semibold px-3 py-1 rounded-full">Fonoaudiologia</span>
+              </div>
+              <h3 class="font-bold text-gray-900 text-base">Fonoaudióloga</h3>
+              <p class="text-sm text-cemear-teal font-medium">Diagnóstico Auditivo</p>
+              <p class="text-xs text-gray-400 mt-1">Audiometria &amp; BERA</p>
+            </div>
+            <!-- Membro 3 -->
+            <div class="gsap-reveal text-center group">
+              <div
+                class="w-full aspect-square rounded-2xl bg-cemear-green-light flex flex-col items-center justify-center mb-4 overflow-hidden relative"
+              >
+                <svg class="w-20 h-20 text-cemear-green/30" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                </svg>
+                <span class="absolute bottom-3 bg-cemear-green text-white text-xs font-semibold px-3 py-1 rounded-full">Fonoaudiologia</span>
+              </div>
+              <h3 class="font-bold text-gray-900 text-base">Fonoaudióloga</h3>
+              <p class="text-sm text-cemear-green font-medium">Reabilitação Auditiva</p>
+              <p class="text-xs text-gray-400 mt-1">Adaptação de AASI</p>
+            </div>
+            <!-- Membro 4 -->
+            <div class="gsap-reveal text-center group">
+              <div
+                class="w-full aspect-square rounded-2xl bg-cemear-green-light flex flex-col items-center justify-center mb-4 overflow-hidden relative"
+              >
+                <svg class="w-20 h-20 text-cemear-green/30" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                </svg>
+                <span class="absolute bottom-3 bg-cemear-green text-white text-xs font-semibold px-3 py-1 rounded-full">Fonoaudiologia</span>
+              </div>
+              <h3 class="font-bold text-gray-900 text-base">Fonoaudióloga</h3>
+              <p class="text-sm text-cemear-green font-medium">Processamento Auditivo</p>
+              <p class="text-xs text-gray-400 mt-1">Treinamento Auditivo</p>
+            </div>
+            <!-- Membro 5 -->
+            <div class="gsap-reveal text-center group">
+              <div
+                class="w-full aspect-square rounded-2xl bg-cemear-purple-light flex flex-col items-center justify-center mb-4 overflow-hidden relative"
+              >
+                <svg class="w-20 h-20 text-cemear-purple/30" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                </svg>
+                <span class="absolute bottom-3 bg-cemear-purple text-white text-xs font-semibold px-3 py-1 rounded-full">Psicologia</span>
+              </div>
+              <h3 class="font-bold text-gray-900 text-base">Psicóloga</h3>
+              <p class="text-sm text-cemear-purple font-medium">Suporte Psicológico</p>
+              <p class="text-xs text-gray-400 mt-1">Acolhimento ao paciente</p>
+            </div>
+            <!-- Membro 6 -->
+            <div class="gsap-reveal text-center group">
+              <div
+                class="w-full aspect-square rounded-2xl bg-cemear-purple-light flex flex-col items-center justify-center mb-4 overflow-hidden relative"
+              >
+                <svg class="w-20 h-20 text-cemear-purple/30" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                </svg>
+                <span class="absolute bottom-3 bg-cemear-purple text-white text-xs font-semibold px-3 py-1 rounded-full">Serviço Social</span>
+              </div>
+              <h3 class="font-bold text-gray-900 text-base">Assistente Social</h3>
+              <p class="text-sm text-cemear-purple font-medium">Serviço Social</p>
+              <p class="text-xs text-gray-400 mt-1">Inclusão &amp; apoio familiar</p>
+            </div>
+            <!-- Membro 7 -->
+            <div class="gsap-reveal text-center group">
+              <div
+                class="w-full aspect-square rounded-2xl bg-cemear-teal-light flex flex-col items-center justify-center mb-4 overflow-hidden relative"
+              >
+                <svg class="w-20 h-20 text-cemear-teal/30" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                </svg>
+                <span class="absolute bottom-3 bg-cemear-teal text-white text-xs font-semibold px-3 py-1 rounded-full">Psicopedagogia</span>
+              </div>
+              <h3 class="font-bold text-gray-900 text-base">Psicopedagoga</h3>
+              <p class="text-sm text-cemear-teal font-medium">Apoio Educacional</p>
+              <p class="text-xs text-gray-400 mt-1">Desenvolvimento da linguagem</p>
+            </div>
+            <!-- Membro 8 -->
+            <div class="gsap-reveal text-center group">
+              <div
+                class="w-full aspect-square rounded-2xl bg-cemear-green-light flex flex-col items-center justify-center mb-4 overflow-hidden relative"
+              >
+                <svg class="w-20 h-20 text-cemear-green/30" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                </svg>
+                <span class="absolute bottom-3 bg-cemear-green text-white text-xs font-semibold px-3 py-1 rounded-full">Medicina</span>
+              </div>
+              <h3 class="font-bold text-gray-900 text-base">Médico</h3>
+              <p class="text-sm text-cemear-green font-medium">Otorrinolaringologista</p>
+              <p class="text-xs text-gray-400 mt-1">+ Neurologista &amp; Endocrinologista</p>
+            </div>
+          </div>
+
+          <!-- Nota sobre fotos -->
+          <p class="gsap-reveal text-center text-gray-400 text-sm">
+            Os perfis completos com fotos e registros profissionais serão publicados em breve.
+          </p>
+        </div>
+      </section>
+
       <!-- ═══════════════════════ 6. INSTITUCIONAL / REDE / CAPACITAÇÃO ═══════════════════════ -->
       <section
         id="institucional"
@@ -1019,6 +1227,236 @@
                 Contribuição ativa para o avanço do conhecimento em audiologia
                 através de pesquisas e publicações científicas.
               </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════ FAQ ═══════════════════════ -->
+      <section id="faq" class="py-24 lg:py-32 bg-white scroll-mt-20">
+        <div class="max-w-3xl mx-auto px-6 lg:px-12">
+          <div class="text-center mb-16">
+            <span
+              class="gsap-reveal inline-block text-cemear-teal font-semibold text-sm uppercase tracking-widest mb-4"
+              >Dúvidas frequentes</span
+            >
+            <h2
+              class="gsap-reveal text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mb-5"
+            >
+              Perguntas <span class="text-cemear-purple">frequentes</span>
+            </h2>
+            <p class="gsap-reveal text-gray-500 text-lg">
+              Tudo o que você precisa saber antes do seu atendimento.
+            </p>
+          </div>
+
+          <div class="gsap-reveal space-y-3">
+            <!-- FAQ 1 -->
+            <details class="faq-item group border border-gray-200 rounded-2xl overflow-hidden">
+              <summary class="flex items-center justify-between px-6 py-5 cursor-pointer list-none">
+                <span class="font-semibold text-gray-900 pr-4">Preciso de encaminhamento médico para ser atendido no CEMEAR?</span>
+                <svg class="w-5 h-5 text-cemear-teal shrink-0 transition-transform duration-300 group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/>
+                </svg>
+              </summary>
+              <div class="px-6 pb-6 text-gray-600 leading-relaxed border-t border-gray-100 pt-4">
+                Sim. O atendimento no CEMEAR é realizado pelo SUS e segue o fluxo oficial de regulação. O primeiro passo é procurar a <strong>Unidade Básica de Saúde (UBS)</strong> do seu território e solicitar encaminhamento para avaliação auditiva. Com o encaminhamento em mãos, a regulação do SUS irá agendar sua consulta no CEMEAR.
+              </div>
+            </details>
+
+            <!-- FAQ 2 -->
+            <details class="faq-item group border border-gray-200 rounded-2xl overflow-hidden">
+              <summary class="flex items-center justify-between px-6 py-5 cursor-pointer list-none">
+                <span class="font-semibold text-gray-900 pr-4">O atendimento tem algum custo?</span>
+                <svg class="w-5 h-5 text-cemear-teal shrink-0 transition-transform duration-300 group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/>
+                </svg>
+              </summary>
+              <div class="px-6 pb-6 text-gray-600 leading-relaxed border-t border-gray-100 pt-4">
+                <strong>Não.</strong> Todo o atendimento no CEMEAR é <strong>100% gratuito</strong>, realizado pelo Sistema Único de Saúde (SUS). Isso inclui consultas, exames diagnósticos, reabilitação e, quando indicado, a adaptação do aparelho auditivo.
+              </div>
+            </details>
+
+            <!-- FAQ 3 -->
+            <details class="faq-item group border border-gray-200 rounded-2xl overflow-hidden">
+              <summary class="flex items-center justify-between px-6 py-5 cursor-pointer list-none">
+                <span class="font-semibold text-gray-900 pr-4">O CEMEAR atende crianças e bebês?</span>
+                <svg class="w-5 h-5 text-cemear-teal shrink-0 transition-transform duration-300 group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/>
+                </svg>
+              </summary>
+              <div class="px-6 pb-6 text-gray-600 leading-relaxed border-t border-gray-100 pt-4">
+                Sim. O CEMEAR atende pacientes de <strong>todas as idades</strong>, incluindo recém-nascidos, bebês e crianças. A detecção precoce de alterações auditivas é fundamental para o desenvolvimento da linguagem e aprendizagem, por isso incentivamos a avaliação assim que houver qualquer suspeita.
+              </div>
+            </details>
+
+            <!-- FAQ 4 -->
+            <details class="faq-item group border border-gray-200 rounded-2xl overflow-hidden">
+              <summary class="flex items-center justify-between px-6 py-5 cursor-pointer list-none">
+                <span class="font-semibold text-gray-900 pr-4">O CEMEAR fornece aparelho auditivo?</span>
+                <svg class="w-5 h-5 text-cemear-teal shrink-0 transition-transform duration-300 group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/>
+                </svg>
+              </summary>
+              <div class="px-6 pb-6 text-gray-600 leading-relaxed border-t border-gray-100 pt-4">
+                Sim. Quando indicado após avaliação, o CEMEAR realiza a <strong>adaptação e acompanhamento de Aparelhos de Amplificação Sonora Individual (AASI)</strong> via SUS, de forma completamente gratuita. O processo inclui a seleção, adaptação e reabilitação auditiva com o aparelho.
+              </div>
+            </details>
+
+            <!-- FAQ 5 -->
+            <details class="faq-item group border border-gray-200 rounded-2xl overflow-hidden">
+              <summary class="flex items-center justify-between px-6 py-5 cursor-pointer list-none">
+                <span class="font-semibold text-gray-900 pr-4">Quais documentos devo levar na primeira consulta?</span>
+                <svg class="w-5 h-5 text-cemear-teal shrink-0 transition-transform duration-300 group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/>
+                </svg>
+              </summary>
+              <div class="px-6 pb-6 text-gray-600 leading-relaxed border-t border-gray-100 pt-4">
+                Para a primeira consulta, leve: <strong>documento de identidade com foto</strong>, <strong>CPF</strong>, <strong>cartão do SUS</strong>, <strong>encaminhamento médico</strong> da UBS, e exames anteriores relacionados à audição ou saúde geral (se houver). Para crianças, leve também a certidão de nascimento e documento do responsável.
+              </div>
+            </details>
+
+            <!-- FAQ 6 -->
+            <details class="faq-item group border border-gray-200 rounded-2xl overflow-hidden">
+              <summary class="flex items-center justify-between px-6 py-5 cursor-pointer list-none">
+                <span class="font-semibold text-gray-900 pr-4">O que é processamento auditivo central?</span>
+                <svg class="w-5 h-5 text-cemear-teal shrink-0 transition-transform duration-300 group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/>
+                </svg>
+              </summary>
+              <div class="px-6 pb-6 text-gray-600 leading-relaxed border-t border-gray-100 pt-4">
+                O processamento auditivo central é a <strong>capacidade do cérebro de interpretar o que os ouvidos captam</strong>. Pessoas com dificuldades nessa área escutam os sons, mas têm dificuldade em entender o que é falado — especialmente em ambientes ruidosos. É frequente em crianças com dificuldades de aprendizagem e leitura. O CEMEAR realiza avaliação e treinamento específico para essa condição.
+              </div>
+            </details>
+
+            <!-- FAQ 7 -->
+            <details class="faq-item group border border-gray-200 rounded-2xl overflow-hidden">
+              <summary class="flex items-center justify-between px-6 py-5 cursor-pointer list-none">
+                <span class="font-semibold text-gray-900 pr-4">Quanto tempo leva o processo de reabilitação?</span>
+                <svg class="w-5 h-5 text-cemear-teal shrink-0 transition-transform duration-300 group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/>
+                </svg>
+              </summary>
+              <div class="px-6 pb-6 text-gray-600 leading-relaxed border-t border-gray-100 pt-4">
+                O tempo de reabilitação varia de acordo com cada caso — tipo e grau da perda auditiva, idade do paciente e resposta individual ao tratamento. O CEMEAR realiza um <strong>acompanhamento contínuo e individualizado</strong>, desde o diagnóstico até a reabilitação completa, garantindo suporte em todas as etapas do cuidado.
+              </div>
+            </details>
+
+            <!-- FAQ 8 -->
+            <details class="faq-item group border border-gray-200 rounded-2xl overflow-hidden">
+              <summary class="flex items-center justify-between px-6 py-5 cursor-pointer list-none">
+                <span class="font-semibold text-gray-900 pr-4">O CEMEAR trata zumbido e tontura?</span>
+                <svg class="w-5 h-5 text-cemear-teal shrink-0 transition-transform duration-300 group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/>
+                </svg>
+              </summary>
+              <div class="px-6 pb-6 text-gray-600 leading-relaxed border-t border-gray-100 pt-4">
+                Sim. O CEMEAR conta com serviço especializado em <strong>reabilitação vestibular</strong>, voltado ao tratamento de distúrbios do equilíbrio, vertigem e tontura. Para o zumbido (tinnitus), a equipe realiza avaliação e orientações específicas dentro do acompanhamento audiológico.
+              </div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════ LOCALIZAÇÃO ═══════════════════════ -->
+      <section id="localizacao" class="py-24 lg:py-32 bg-gray-50 scroll-mt-20">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+          <div class="text-center max-w-2xl mx-auto mb-16">
+            <span
+              class="gsap-reveal inline-block text-cemear-teal font-semibold text-sm uppercase tracking-widest mb-4"
+              >Como chegar</span
+            >
+            <h2
+              class="gsap-reveal text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mb-5"
+            >
+              Onde nos <span class="text-cemear-purple">encontrar</span>
+            </h2>
+            <p class="gsap-reveal text-gray-500 text-lg">
+              Estamos em Belo Horizonte, de fácil acesso pelo transporte público.
+            </p>
+          </div>
+
+          <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
+            <!-- Info -->
+            <div class="gsap-reveal space-y-6">
+              <!-- Endereço -->
+              <div class="bg-white rounded-2xl p-6 shadow-sm flex items-start gap-4">
+                <div class="w-12 h-12 rounded-xl bg-cemear-teal/10 flex items-center justify-center shrink-0">
+                  <svg class="w-6 h-6 text-cemear-teal" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="font-bold text-gray-900 mb-1">Endereço</h3>
+                  <p class="text-gray-600 text-sm leading-relaxed">
+                    <!-- Substitua pelo endereço real do CEMEAR -->
+                    Rua [a confirmar], nº [XXX]<br />
+                    Belo Horizonte — MG<br />
+                    CEP: [00000-000]
+                  </p>
+                </div>
+              </div>
+              <!-- Horário -->
+              <div class="bg-white rounded-2xl p-6 shadow-sm flex items-start gap-4">
+                <div class="w-12 h-12 rounded-xl bg-cemear-green/10 flex items-center justify-center shrink-0">
+                  <svg class="w-6 h-6 text-cemear-green" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="font-bold text-gray-900 mb-1">Horário de funcionamento</h3>
+                  <p class="text-gray-600 text-sm leading-relaxed">
+                    Segunda a Sexta: 07h – 17h<br />
+                    Sábado e Domingo: Fechado
+                  </p>
+                </div>
+              </div>
+              <!-- Telefone -->
+              <div class="bg-white rounded-2xl p-6 shadow-sm flex items-start gap-4">
+                <div class="w-12 h-12 rounded-xl bg-cemear-purple/10 flex items-center justify-center shrink-0">
+                  <svg class="w-6 h-6 text-cemear-purple" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="font-bold text-gray-900 mb-1">Contato</h3>
+                  <p class="text-gray-600 text-sm leading-relaxed">
+                    <!-- Substitua pelo telefone real -->
+                    (31) [XXXX-XXXX]<br />
+                    <span class="text-xs text-gray-400">Atendimento via regulação SUS</span>
+                  </p>
+                </div>
+              </div>
+              <!-- SUS info -->
+              <div class="bg-cemear-teal-light rounded-2xl p-6 border border-cemear-teal/20">
+                <p class="text-sm text-gray-700 leading-relaxed">
+                  <strong class="text-cemear-teal">Lembre-se:</strong> o agendamento é feito pela regulação do SUS mediante encaminhamento da sua UBS. Não é possível agendar diretamente pelo telefone.
+                </p>
+              </div>
+            </div>
+
+            <!-- Mapa -->
+            <div class="gsap-reveal">
+              <div class="rounded-2xl overflow-hidden shadow-md h-96 lg:h-full min-h-96 bg-gray-200">
+                <!--
+                  Para adicionar o mapa:
+                  1. Acesse maps.google.com
+                  2. Pesquise o endereço do CEMEAR
+                  3. Clique em "Compartilhar" > "Incorporar um mapa"
+                  4. Substitua o src abaixo pelo link gerado
+                -->
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3751.!2d-43.!3d-19.!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sCEMEAR+-+Centro+Especializado+em+Diagn%C3%B3stico+e+Reabilita%C3%A7%C3%A3o+Auditiva!5e0!3m2!1spt-BR!2sbr!4v0"
+                  width="100%"
+                  height="100%"
+                  style="border:0; min-height: 384px;"
+                  allowfullscreen=""
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                  title="Localização do CEMEAR em Belo Horizonte"
+                ></iframe>
+              </div>
             </div>
           </div>
         </div>
