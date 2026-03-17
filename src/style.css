@@ -10,9 +10,6 @@
   --color-cemear-teal: #19a287;
   --color-cemear-teal-light: #e0f5f1;
   --color-cemear-teal-dark: #148570;
-  --color-cemear-purple: #391b68;
-  --color-cemear-purple-light: #ede7f6;
-  --color-cemear-purple-dark: #2a1050;
   --color-gray-50: #f9fafb;
   --color-gray-100: #f3f4f6;
   --color-gray-200: #e5e7eb;
@@ -52,7 +49,7 @@
   }
 
   ::selection {
-    background-color: var(--color-cemear-purple);
+    background-color: var(--color-cemear-teal-dark);
     color: #ffffff;
   }
 
@@ -77,9 +74,9 @@
   .hero-gradient {
     background: linear-gradient(
       135deg,
-      var(--color-cemear-purple) 0%,
-      var(--color-cemear-purple-dark) 40%,
-      var(--color-cemear-teal) 100%
+      var(--color-cemear-teal-dark) 0%,
+      var(--color-cemear-teal) 60%,
+      var(--color-cemear-green) 100%
     );
   }
 
@@ -134,11 +131,11 @@
   /* CTA button with micro-animation */
   .btn-primary {
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 4px 14px rgba(57, 27, 104, 0.25);
+    box-shadow: 0 4px 14px rgba(25, 162, 135, 0.25);
   }
   .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(57, 27, 104, 0.35);
+    box-shadow: 0 8px 25px rgba(25, 162, 135, 0.35);
   }
   .btn-primary:active {
     transform: translateY(0);
@@ -196,7 +193,7 @@
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
   .diff-card:hover {
-    box-shadow: 0 16px 48px rgba(57, 27, 104, 0.1);
+    box-shadow: 0 16px 48px rgba(25, 162, 135, 0.1);
     transform: translateY(-4px);
   }
 
