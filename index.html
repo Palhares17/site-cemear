@@ -535,40 +535,128 @@
             </div>
           </div>
 
-          <!-- Timeline -->
+          <!-- Timeline — vertical para acomodar 7 marcos com descrições mais longas -->
           <div class="gsap-reveal mt-16 lg:mt-20">
-            <div class="relative">
-              <div class="absolute left-0 right-0 top-6 h-0.5 hidden lg:block" style="background: linear-gradient(90deg, #19a287 0%, #148570 33%, #71b561 66%, #148570 100%);"></div>
-              <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="text-center relative group">
-                  <div class="w-12 h-12 rounded-full bg-cemear-teal text-white font-extrabold text-sm flex items-center justify-center mx-auto mb-4 relative z-10 shadow-md ring-2 ring-cemear-teal/30 transition-shadow duration-300 group-hover:shadow-lg group-hover:shadow-cemear-teal/20">
+            <div class="relative max-w-3xl mx-auto">
+              <!-- Linha vertical gradiente -->
+              <div
+                class="absolute left-6 sm:left-7 top-2 bottom-2 w-0.5"
+                style="background: linear-gradient(180deg, #19a287 0%, #148570 25%, #71b561 50%, #19a287 75%, #148570 100%);"
+                aria-hidden="true"
+              ></div>
+
+              <ol class="space-y-8 lg:space-y-10">
+                <li class="relative pl-20 sm:pl-24 group">
+                  <div
+                    class="absolute left-0 top-0 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-cemear-teal text-white font-extrabold text-xs sm:text-sm flex items-center justify-center shadow-md ring-2 ring-cemear-teal/30 transition-shadow duration-300 group-hover:shadow-lg group-hover:shadow-cemear-teal/25"
+                  >
                     2006
                   </div>
-                  <h4 class="font-bold text-gray-900 text-sm mb-1">Fundação</h4>
-                  <p class="text-gray-500 text-xs leading-relaxed">Criação do CEMEAR como associação sem fins lucrativos em Belo Horizonte.</p>
-                </div>
-                <div class="text-center relative group">
-                  <div class="w-12 h-12 rounded-full bg-cemear-teal-dark text-white font-extrabold text-sm flex items-center justify-center mx-auto mb-4 relative z-10 shadow-md ring-2 ring-cemear-teal-dark/30 transition-shadow duration-300 group-hover:shadow-lg group-hover:shadow-cemear-teal-dark/20">
-                    2009
+                  <h4 class="font-bold text-gray-900 text-base lg:text-lg mb-1.5">
+                    Fundação
+                  </h4>
+                  <p class="text-gray-500 text-sm leading-relaxed">
+                    Fundação do CEMEAR.
+                  </p>
+                </li>
+
+                <li class="relative pl-20 sm:pl-24 group">
+                  <div
+                    class="absolute left-0 top-0 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-cemear-teal-dark text-white font-extrabold text-xs sm:text-sm flex items-center justify-center shadow-md ring-2 ring-cemear-teal-dark/30 transition-shadow duration-300 group-hover:shadow-lg group-hover:shadow-cemear-teal-dark/25"
+                  >
+                    2012
                   </div>
-                  <h4 class="font-bold text-gray-900 text-sm mb-1">Referência Estadual</h4>
-                  <p class="text-gray-500 text-xs leading-relaxed">Reconhecimento como Serviço de Referência Estadual em saúde auditiva pelo SUS.</p>
-                </div>
-                <div class="text-center relative group">
-                  <div class="w-12 h-12 rounded-full bg-cemear-green text-white font-extrabold text-sm flex items-center justify-center mx-auto mb-4 relative z-10 shadow-md ring-2 ring-cemear-green/30 transition-shadow duration-300 group-hover:shadow-lg group-hover:shadow-cemear-green/20">
+                  <h4 class="font-bold text-gray-900 text-base lg:text-lg mb-1.5">
+                    Referência no SUS-MG
+                  </h4>
+                  <p class="text-gray-500 text-sm leading-relaxed">
+                    Reconhecimento como Serviço de Referência em Fonoaudiologia
+                    Descentralizada no SUS-MG e como Unidade de Referência
+                    Estadual e Nacional.
+                  </p>
+                </li>
+
+                <li class="relative pl-20 sm:pl-24 group">
+                  <div
+                    class="absolute left-0 top-0 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-cemear-green text-white font-extrabold text-xs sm:text-sm flex items-center justify-center shadow-md ring-2 ring-cemear-green/30 transition-shadow duration-300 group-hover:shadow-lg group-hover:shadow-cemear-green/25"
+                  >
                     2016
                   </div>
-                  <h4 class="font-bold text-gray-900 text-sm mb-1">Expansão</h4>
-                  <p class="text-gray-500 text-xs leading-relaxed">Ampliação das áreas de atuação com reabilitação vestibular e processamento auditivo.</p>
-                </div>
-                <div class="text-center relative group">
-                  <div class="w-12 h-12 rounded-full bg-linear-to-br from-cemear-teal-dark to-cemear-green text-white font-extrabold text-sm flex items-center justify-center mx-auto mb-4 relative z-10 shadow-md ring-2 ring-cemear-teal/30 transition-shadow duration-300 group-hover:shadow-lg group-hover:shadow-cemear-teal/25">
-                    Hoje
+                  <h4 class="font-bold text-gray-900 text-base lg:text-lg mb-1.5">
+                    Projetos PRONAS/PCD
+                  </h4>
+                  <p class="text-gray-500 text-sm leading-relaxed">
+                    Início dos projetos do PRONAS/PCD, ampliando a atuação
+                    institucional, fortalecendo a integração com os serviços
+                    estaduais e expandindo as ações assistenciais e de
+                    capacitação.
+                  </p>
+                </li>
+
+                <li class="relative pl-20 sm:pl-24 group">
+                  <div
+                    class="absolute left-0 top-0 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-cemear-teal text-white font-extrabold text-xs sm:text-sm flex items-center justify-center shadow-md ring-2 ring-cemear-teal/30 transition-shadow duration-300 group-hover:shadow-lg group-hover:shadow-cemear-teal/25"
+                  >
+                    2019
                   </div>
-                  <h4 class="font-bold text-gray-900 text-sm mb-1">Referência Nacional</h4>
-                  <p class="text-gray-500 text-xs leading-relaxed">+18 anos de excelência, formação de profissionais e pesquisa científica em audiologia.</p>
-                </div>
-              </div>
+                  <h4 class="font-bold text-gray-900 text-base lg:text-lg mb-1.5">
+                    Audiologia Infantil
+                  </h4>
+                  <p class="text-gray-500 text-sm leading-relaxed">
+                    Implantação pioneira da avaliação audiológica infantil na
+                    rede, suprindo uma importante lacuna assistencial.
+                  </p>
+                </li>
+
+                <li class="relative pl-20 sm:pl-24 group">
+                  <div
+                    class="absolute left-0 top-0 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-cemear-teal-dark text-white font-extrabold text-xs sm:text-sm flex items-center justify-center shadow-md ring-2 ring-cemear-teal-dark/30 transition-shadow duration-300 group-hover:shadow-lg group-hover:shadow-cemear-teal-dark/25"
+                  >
+                    2020
+                  </div>
+                  <h4 class="font-bold text-gray-900 text-base lg:text-lg mb-1.5">
+                    Diagnóstico Credenciado
+                  </h4>
+                  <p class="text-gray-500 text-sm leading-relaxed">
+                    Início da realização de exames diagnósticos por meio de
+                    credenciamento, ampliando e consolidando a atuação na rede.
+                  </p>
+                </li>
+
+                <li class="relative pl-20 sm:pl-24 group">
+                  <div
+                    class="absolute left-0 top-0 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-cemear-green text-white font-extrabold text-xs sm:text-sm flex items-center justify-center shadow-md ring-2 ring-cemear-green/30 transition-shadow duration-300 group-hover:shadow-lg group-hover:shadow-cemear-green/25"
+                  >
+                    2022
+                  </div>
+                  <h4 class="font-bold text-gray-900 text-base lg:text-lg mb-1.5">
+                    Expansão Estrutural
+                  </h4>
+                  <p class="text-gray-500 text-sm leading-relaxed">
+                    Reforma estrutural com ampliação do espaço físico,
+                    possibilitando a expansão das atividades e da capacidade de
+                    atendimento.
+                  </p>
+                </li>
+
+                <li class="relative pl-20 sm:pl-24 group">
+                  <div
+                    class="absolute left-0 top-0 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-linear-to-br from-cemear-teal-dark to-cemear-green text-white font-extrabold text-xs sm:text-sm flex items-center justify-center shadow-md ring-2 ring-cemear-teal/30 transition-shadow duration-300 group-hover:shadow-lg group-hover:shadow-cemear-teal/30"
+                  >
+                    2024
+                  </div>
+                  <h4 class="font-bold text-gray-900 text-base lg:text-lg mb-1.5">
+                    Linha de Cuidado RCPD
+                  </h4>
+                  <p class="text-gray-500 text-sm leading-relaxed">
+                    Reconhecimento como Serviço de Referência Estadual na
+                    integração da Linha de Cuidado da Saúde Auditiva da Rede de
+                    Cuidados à Pessoa com Deficiência (RCPD) do SUS-MG,
+                    conforme Deliberação CIB-SUS nº 4.788, de 24 de julho de
+                    2024.
+                  </p>
+                </li>
+              </ol>
             </div>
           </div>
         </div>
