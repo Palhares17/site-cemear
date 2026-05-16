@@ -187,6 +187,17 @@
     box-shadow: 0 12px 40px rgba(25, 162, 135, 0.12);
     transform: translateY(-6px);
   }
+  /* Accordion behavior for area cards using <details> */
+  details.area-card > summary {
+    list-style: none;
+  }
+  details.area-card > summary::-webkit-details-marker {
+    display: none;
+  }
+  details.area-card[open] {
+    border-color: var(--color-cemear-teal);
+    box-shadow: 0 12px 40px rgba(25, 162, 135, 0.12);
+  }
 
   /* Differential card */
   .diff-card {

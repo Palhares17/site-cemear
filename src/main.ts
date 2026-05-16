@@ -179,6 +179,76 @@ function initConversionTracking(): void {
 }
 
 // ──────────────────────────────────────────────
+// 8. Accordion (details/summary) — animação suave
+// Intercepta o toggle nativo dos cards de "Áreas de atuação"
+// e anima altura + opacidade do conteúdo via GSAP.
+// ──────────────────────────────────────────────
+function initAreaAccordion(): void {
+  const accordions =
+    document.querySelectorAll<HTMLDetailsElement>("details.area-card");
+  if (accordions.length === 0) return;
+
+  const prefersReducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)",
+  ).matches;
+
+  accordions.forEach((details) => {
+    const summary = details.querySelector<HTMLElement>("summary");
+    const content = summary?.nextElementSibling as HTMLElement | null;
+    if (!summary || !content) return;
+
+    // overflow hidden permite animar a altura sem vazamento visual durante a transição
+    content.style.overflow = "hidden";
+
+    summary.addEventListener("click", (e: Event) => {
+      e.preventDefault();
+      const isOpen = details.hasAttribute("open");
+
+      if (prefersReducedMotion) {
+        // Toggle instantâneo respeitando a preferência do usuário
+        if (isOpen) details.removeAttribute("open");
+        else details.setAttribute("open", "");
+        return;
+      }
+
+      if (isOpen) {
+        // Fechar: anima até 0 e só então remove [open]
+        gsap.fromTo(
+          content,
+          { height: content.scrollHeight, opacity: 1 },
+          {
+            height: 0,
+            opacity: 0,
+            duration: 0.3,
+            ease: "power2.inOut",
+            onComplete: () => {
+              details.removeAttribute("open");
+              gsap.set(content, { clearProps: "height,opacity" });
+            },
+          },
+        );
+      } else {
+        // Abrir: seta [open] primeiro (chevron rotaciona) e anima de 0 até a altura natural
+        details.setAttribute("open", "");
+        gsap.fromTo(
+          content,
+          { height: 0, opacity: 0 },
+          {
+            height: content.scrollHeight,
+            opacity: 1,
+            duration: 0.35,
+            ease: "power2.out",
+            onComplete: () => {
+              gsap.set(content, { clearProps: "height,opacity" });
+            },
+          },
+        );
+      }
+    });
+  });
+}
+
+// ──────────────────────────────────────────────
 // Initialize everything on DOM ready
 // ──────────────────────────────────────────────
 document.addEventListener("DOMContentLoaded", () => {
@@ -189,4 +259,5 @@ document.addEventListener("DOMContentLoaded", () => {
   initSmoothScroll();
   initParallax();
   initConversionTracking();
+  initAreaAccordion();
 });
