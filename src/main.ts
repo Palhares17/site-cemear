@@ -179,72 +179,119 @@ function initConversionTracking(): void {
 }
 
 // ──────────────────────────────────────────────
-// 8. Accordion (details/summary) — animação suave
-// Intercepta o toggle nativo dos cards de "Áreas de atuação"
-// e anima altura + opacidade do conteúdo via GSAP.
+// 8. Modal "Áreas de atuação"
+// Os cards <details> servem apenas como gatilhos: o clique no summary
+// é interceptado (sem abrir o accordion nativo) e abre um pop-up
+// elegante com animação fluida via GSAP timeline.
 // ──────────────────────────────────────────────
-function initAreaAccordion(): void {
-  const accordions =
-    document.querySelectorAll<HTMLDetailsElement>("details.area-card");
-  if (accordions.length === 0) return;
+function initAreaModal(): void {
+  const triggers =
+    document.querySelectorAll<HTMLDetailsElement>("details.area-trigger");
+  const modal = document.getElementById("area-modal");
+  if (!modal || triggers.length === 0) return;
+
+  const backdrop = modal.querySelector<HTMLElement>(".area-modal__backdrop");
+  const dialog = modal.querySelector<HTMLElement>(".area-modal__dialog");
+  const iconHolder = modal.querySelector<HTMLElement>("#area-modal-icon");
+  const titleEl = modal.querySelector<HTMLElement>("#area-modal-title");
+  const bodyEl = modal.querySelector<HTMLElement>("#area-modal-body");
+  const closeBtn = modal.querySelector<HTMLElement>(".area-modal__close");
+  if (!backdrop || !dialog || !iconHolder || !titleEl || !bodyEl) return;
 
   const prefersReducedMotion = window.matchMedia(
     "(prefers-reduced-motion: reduce)",
   ).matches;
 
-  accordions.forEach((details) => {
-    const summary = details.querySelector<HTMLElement>("summary");
-    const content = summary?.nextElementSibling as HTMLElement | null;
-    if (!summary || !content) return;
+  let lastFocused: HTMLElement | null = null;
+  let isOpen = false;
+  let tl: gsap.core.Timeline | null = null;
 
-    // overflow hidden permite animar a altura sem vazamento visual durante a transição
-    content.style.overflow = "hidden";
+  const openModal = (trigger: HTMLElement): void => {
+    lastFocused = trigger;
+    isOpen = true;
 
+    // Popula o conteúdo a partir do card clicado
+    const icon = trigger.querySelector<HTMLElement>(".area-icon");
+    const title = trigger.querySelector<HTMLElement>("h3");
+    const content =
+      trigger.querySelector<HTMLElement>("summary")?.nextElementSibling;
+    iconHolder.innerHTML = icon ? icon.outerHTML : "";
+    titleEl.textContent = title?.textContent?.trim() ?? "";
+    bodyEl.innerHTML = content ? content.innerHTML : "";
+
+    modal.classList.add("is-open");
+    modal.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+    closeBtn?.focus();
+
+    if (prefersReducedMotion) {
+      gsap.set([backdrop, dialog], { clearProps: "opacity,transform" });
+      return;
+    }
+
+    tl?.kill();
+    tl = gsap.timeline();
+    tl.fromTo(
+      backdrop,
+      { opacity: 0 },
+      { opacity: 1, duration: 0.3, ease: "power1.out" },
+    )
+      .fromTo(
+        dialog,
+        { opacity: 0, y: 32, scale: 0.94 },
+        { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: "power3.out" },
+        "-=0.15",
+      )
+      .fromTo(
+        [iconHolder, titleEl, bodyEl],
+        { opacity: 0, y: 16 },
+        { opacity: 1, y: 0, duration: 0.4, stagger: 0.08, ease: "power2.out" },
+        "-=0.3",
+      );
+  };
+
+  const closeModal = (): void => {
+    if (!isOpen) return;
+    isOpen = false;
+    modal.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+
+    const finish = (): void => {
+      modal.classList.remove("is-open");
+      lastFocused?.focus();
+    };
+
+    if (prefersReducedMotion) {
+      finish();
+      return;
+    }
+
+    tl?.kill();
+    tl = gsap.timeline({ onComplete: finish });
+    tl.to(dialog, {
+      opacity: 0,
+      y: 24,
+      scale: 0.96,
+      duration: 0.3,
+      ease: "power2.in",
+    }).to(backdrop, { opacity: 0, duration: 0.25, ease: "power1.in" }, "-=0.2");
+  };
+
+  triggers.forEach((trigger) => {
+    const summary = trigger.querySelector<HTMLElement>("summary");
+    if (!summary) return;
     summary.addEventListener("click", (e: Event) => {
-      e.preventDefault();
-      const isOpen = details.hasAttribute("open");
-
-      if (prefersReducedMotion) {
-        // Toggle instantâneo respeitando a preferência do usuário
-        if (isOpen) details.removeAttribute("open");
-        else details.setAttribute("open", "");
-        return;
-      }
-
-      if (isOpen) {
-        // Fechar: anima até 0 e só então remove [open]
-        gsap.fromTo(
-          content,
-          { height: content.scrollHeight, opacity: 1 },
-          {
-            height: 0,
-            opacity: 0,
-            duration: 0.3,
-            ease: "power2.inOut",
-            onComplete: () => {
-              details.removeAttribute("open");
-              gsap.set(content, { clearProps: "height,opacity" });
-            },
-          },
-        );
-      } else {
-        // Abrir: seta [open] primeiro (chevron rotaciona) e anima de 0 até a altura natural
-        details.setAttribute("open", "");
-        gsap.fromTo(
-          content,
-          { height: 0, opacity: 0 },
-          {
-            height: content.scrollHeight,
-            opacity: 1,
-            duration: 0.35,
-            ease: "power2.out",
-            onComplete: () => {
-              gsap.set(content, { clearProps: "height,opacity" });
-            },
-          },
-        );
-      }
+      e.preventDefault(); // impede o toggle nativo do <details>
+      openModal(trigger);
     });
+  });
+
+  modal.querySelectorAll<HTMLElement>("[data-area-close]").forEach((el) => {
+    el.addEventListener("click", closeModal);
+  });
+
+  document.addEventListener("keydown", (e: KeyboardEvent) => {
+    if (e.key === "Escape" && isOpen) closeModal();
   });
 }
 
@@ -259,5 +306,5 @@ document.addEventListener("DOMContentLoaded", () => {
   initSmoothScroll();
   initParallax();
   initConversionTracking();
-  initAreaAccordion();
+  initAreaModal();
 });

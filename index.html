@@ -974,10 +974,13 @@
 
           <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             <!-- Area 1: Diagnóstico Auditivo -->
-            <details class="gsap-reveal area-card bg-white rounded-2xl group">
-              <summary class="cursor-pointer p-5 lg:p-6 flex items-center gap-4">
+            <details class="gsap-reveal area-card area-trigger bg-white rounded-2xl group">
+              <summary
+                class="cursor-pointer p-5 lg:p-6 flex items-center gap-4"
+                aria-haspopup="dialog"
+              >
                 <div
-                  class="w-11 h-11 rounded-xl bg-cemear-teal/10 flex items-center justify-center shrink-0"
+                  class="area-icon w-11 h-11 rounded-xl bg-cemear-teal/10 flex items-center justify-center shrink-0"
                 >
                   <svg
                     class="w-6 h-6 text-cemear-teal"
@@ -995,24 +998,28 @@
                   </svg>
                 </div>
                 <h3
-                  class="flex-1 text-base lg:text-lg font-bold text-gray-900 group-open:text-cemear-teal transition-colors"
+                  class="flex-1 text-base lg:text-lg font-bold text-gray-900 group-hover:text-cemear-teal transition-colors"
                 >
                   Diagnóstico Auditivo
                 </h3>
-                <svg
-                  class="w-5 h-5 text-gray-400 group-open:text-cemear-teal group-open:rotate-180 transition-all shrink-0"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  stroke-width="2"
+                <span
+                  class="area-plus w-9 h-9 rounded-full bg-gray-100 text-gray-400 flex items-center justify-center shrink-0 transition-all duration-300 group-hover:bg-cemear-teal group-hover:text-white group-hover:rotate-90"
                   aria-hidden="true"
                 >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-                  />
-                </svg>
+                  <svg
+                    class="w-4 h-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="2.2"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M12 4.5v15m7.5-7.5h-15"
+                    />
+                  </svg>
+                </span>
               </summary>
               <div class="px-5 lg:px-6 pb-5 lg:pb-6 -mt-1">
                 <p class="text-gray-500 text-sm leading-relaxed">
@@ -1023,10 +1030,13 @@
             </details>
 
             <!-- Area 2: Reabilitação Auditiva -->
-            <details class="gsap-reveal area-card bg-white rounded-2xl group">
-              <summary class="cursor-pointer p-5 lg:p-6 flex items-center gap-4">
+            <details class="gsap-reveal area-card area-trigger bg-white rounded-2xl group">
+              <summary
+                class="cursor-pointer p-5 lg:p-6 flex items-center gap-4"
+                aria-haspopup="dialog"
+              >
                 <div
-                  class="w-11 h-11 rounded-xl bg-cemear-teal/10 flex items-center justify-center shrink-0"
+                  class="area-icon w-11 h-11 rounded-xl bg-cemear-teal/10 flex items-center justify-center shrink-0"
                 >
                   <svg
                     class="w-6 h-6 text-cemear-teal"
@@ -1044,24 +1054,28 @@
                   </svg>
                 </div>
                 <h3
-                  class="flex-1 text-base lg:text-lg font-bold text-gray-900 group-open:text-cemear-teal transition-colors"
+                  class="flex-1 text-base lg:text-lg font-bold text-gray-900 group-hover:text-cemear-teal transition-colors"
                 >
                   Reabilitação Auditiva
                 </h3>
-                <svg
-                  class="w-5 h-5 text-gray-400 group-open:text-cemear-teal group-open:rotate-180 transition-all shrink-0"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  stroke-width="2"
+                <span
+                  class="area-plus w-9 h-9 rounded-full bg-gray-100 text-gray-400 flex items-center justify-center shrink-0 transition-all duration-300 group-hover:bg-cemear-teal group-hover:text-white group-hover:rotate-90"
                   aria-hidden="true"
                 >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-                  />
-                </svg>
+                  <svg
+                    class="w-4 h-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="2.2"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M12 4.5v15m7.5-7.5h-15"
+                    />
+                  </svg>
+                </span>
               </summary>
               <div class="px-5 lg:px-6 pb-5 lg:pb-6 -mt-1">
                 <p class="text-gray-500 text-sm leading-relaxed">
@@ -1077,10 +1091,13 @@
             </details>
 
             <!-- Area 3: Reabilitação do Processamento Auditivo Central -->
-            <details class="gsap-reveal area-card bg-white rounded-2xl group">
-              <summary class="cursor-pointer p-5 lg:p-6 flex items-center gap-4">
+            <details class="gsap-reveal area-card area-trigger bg-white rounded-2xl group">
+              <summary
+                class="cursor-pointer p-5 lg:p-6 flex items-center gap-4"
+                aria-haspopup="dialog"
+              >
                 <div
-                  class="w-11 h-11 rounded-xl bg-cemear-green/10 flex items-center justify-center shrink-0"
+                  class="area-icon w-11 h-11 rounded-xl bg-cemear-green/10 flex items-center justify-center shrink-0"
                 >
                   <svg
                     class="w-6 h-6 text-cemear-green"
@@ -1098,24 +1115,28 @@
                   </svg>
                 </div>
                 <h3
-                  class="flex-1 text-base lg:text-lg font-bold text-gray-900 group-open:text-cemear-teal transition-colors"
+                  class="flex-1 text-base lg:text-lg font-bold text-gray-900 group-hover:text-cemear-teal transition-colors"
                 >
                   Reabilitação do Processamento Auditivo Central
                 </h3>
-                <svg
-                  class="w-5 h-5 text-gray-400 group-open:text-cemear-teal group-open:rotate-180 transition-all shrink-0"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  stroke-width="2"
+                <span
+                  class="area-plus w-9 h-9 rounded-full bg-gray-100 text-gray-400 flex items-center justify-center shrink-0 transition-all duration-300 group-hover:bg-cemear-teal group-hover:text-white group-hover:rotate-90"
                   aria-hidden="true"
                 >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-                  />
-                </svg>
+                  <svg
+                    class="w-4 h-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="2.2"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M12 4.5v15m7.5-7.5h-15"
+                    />
+                  </svg>
+                </span>
               </summary>
               <div class="px-5 lg:px-6 pb-5 lg:pb-6 -mt-1">
                 <p class="text-gray-500 text-sm leading-relaxed">
@@ -1130,10 +1151,13 @@
             </details>
 
             <!-- Area 4: Reabilitação Vestibular -->
-            <details class="gsap-reveal area-card bg-white rounded-2xl group">
-              <summary class="cursor-pointer p-5 lg:p-6 flex items-center gap-4">
+            <details class="gsap-reveal area-card area-trigger bg-white rounded-2xl group">
+              <summary
+                class="cursor-pointer p-5 lg:p-6 flex items-center gap-4"
+                aria-haspopup="dialog"
+              >
                 <div
-                  class="w-11 h-11 rounded-xl bg-cemear-teal/10 flex items-center justify-center shrink-0"
+                  class="area-icon w-11 h-11 rounded-xl bg-cemear-teal/10 flex items-center justify-center shrink-0"
                 >
                   <svg
                     class="w-6 h-6 text-cemear-teal"
@@ -1151,24 +1175,28 @@
                   </svg>
                 </div>
                 <h3
-                  class="flex-1 text-base lg:text-lg font-bold text-gray-900 group-open:text-cemear-teal transition-colors"
+                  class="flex-1 text-base lg:text-lg font-bold text-gray-900 group-hover:text-cemear-teal transition-colors"
                 >
                   Reabilitação Vestibular
                 </h3>
-                <svg
-                  class="w-5 h-5 text-gray-400 group-open:text-cemear-teal group-open:rotate-180 transition-all shrink-0"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  stroke-width="2"
+                <span
+                  class="area-plus w-9 h-9 rounded-full bg-gray-100 text-gray-400 flex items-center justify-center shrink-0 transition-all duration-300 group-hover:bg-cemear-teal group-hover:text-white group-hover:rotate-90"
                   aria-hidden="true"
                 >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-                  />
-                </svg>
+                  <svg
+                    class="w-4 h-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="2.2"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M12 4.5v15m7.5-7.5h-15"
+                    />
+                  </svg>
+                </span>
               </summary>
               <div class="px-5 lg:px-6 pb-5 lg:pb-6 -mt-1">
                 <p class="text-gray-500 text-sm leading-relaxed">
@@ -1183,10 +1211,13 @@
             </details>
 
             <!-- Area 5: Reabilitação de Zumbido -->
-            <details class="gsap-reveal area-card bg-white rounded-2xl group">
-              <summary class="cursor-pointer p-5 lg:p-6 flex items-center gap-4">
+            <details class="gsap-reveal area-card area-trigger bg-white rounded-2xl group">
+              <summary
+                class="cursor-pointer p-5 lg:p-6 flex items-center gap-4"
+                aria-haspopup="dialog"
+              >
                 <div
-                  class="w-11 h-11 rounded-xl bg-cemear-green/10 flex items-center justify-center shrink-0"
+                  class="area-icon w-11 h-11 rounded-xl bg-cemear-green/10 flex items-center justify-center shrink-0"
                 >
                   <svg
                     class="w-6 h-6 text-cemear-green"
@@ -1204,24 +1235,28 @@
                   </svg>
                 </div>
                 <h3
-                  class="flex-1 text-base lg:text-lg font-bold text-gray-900 group-open:text-cemear-teal transition-colors"
+                  class="flex-1 text-base lg:text-lg font-bold text-gray-900 group-hover:text-cemear-teal transition-colors"
                 >
                   Reabilitação de Zumbido
                 </h3>
-                <svg
-                  class="w-5 h-5 text-gray-400 group-open:text-cemear-teal group-open:rotate-180 transition-all shrink-0"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  stroke-width="2"
+                <span
+                  class="area-plus w-9 h-9 rounded-full bg-gray-100 text-gray-400 flex items-center justify-center shrink-0 transition-all duration-300 group-hover:bg-cemear-teal group-hover:text-white group-hover:rotate-90"
                   aria-hidden="true"
                 >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-                  />
-                </svg>
+                  <svg
+                    class="w-4 h-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="2.2"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M12 4.5v15m7.5-7.5h-15"
+                    />
+                  </svg>
+                </span>
               </summary>
               <div class="px-5 lg:px-6 pb-5 lg:pb-6 -mt-1">
                 <p class="text-gray-500 text-sm leading-relaxed">
@@ -1236,10 +1271,13 @@
             </details>
 
             <!-- Area 6: Serviço Social -->
-            <details class="gsap-reveal area-card bg-white rounded-2xl group">
-              <summary class="cursor-pointer p-5 lg:p-6 flex items-center gap-4">
+            <details class="gsap-reveal area-card area-trigger bg-white rounded-2xl group">
+              <summary
+                class="cursor-pointer p-5 lg:p-6 flex items-center gap-4"
+                aria-haspopup="dialog"
+              >
                 <div
-                  class="w-11 h-11 rounded-xl bg-cemear-teal/10 flex items-center justify-center shrink-0"
+                  class="area-icon w-11 h-11 rounded-xl bg-cemear-teal/10 flex items-center justify-center shrink-0"
                 >
                   <svg
                     class="w-6 h-6 text-cemear-teal"
@@ -1257,24 +1295,28 @@
                   </svg>
                 </div>
                 <h3
-                  class="flex-1 text-base lg:text-lg font-bold text-gray-900 group-open:text-cemear-teal transition-colors"
+                  class="flex-1 text-base lg:text-lg font-bold text-gray-900 group-hover:text-cemear-teal transition-colors"
                 >
                   Serviço Social
                 </h3>
-                <svg
-                  class="w-5 h-5 text-gray-400 group-open:text-cemear-teal group-open:rotate-180 transition-all shrink-0"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  stroke-width="2"
+                <span
+                  class="area-plus w-9 h-9 rounded-full bg-gray-100 text-gray-400 flex items-center justify-center shrink-0 transition-all duration-300 group-hover:bg-cemear-teal group-hover:text-white group-hover:rotate-90"
                   aria-hidden="true"
                 >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-                  />
-                </svg>
+                  <svg
+                    class="w-4 h-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="2.2"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M12 4.5v15m7.5-7.5h-15"
+                    />
+                  </svg>
+                </span>
               </summary>
               <div class="px-5 lg:px-6 pb-5 lg:pb-6 -mt-1">
                 <p class="text-gray-500 text-sm leading-relaxed">
@@ -1288,10 +1330,13 @@
             </details>
 
             <!-- Area 7: Psicologia -->
-            <details class="gsap-reveal area-card bg-white rounded-2xl group">
-              <summary class="cursor-pointer p-5 lg:p-6 flex items-center gap-4">
+            <details class="gsap-reveal area-card area-trigger bg-white rounded-2xl group">
+              <summary
+                class="cursor-pointer p-5 lg:p-6 flex items-center gap-4"
+                aria-haspopup="dialog"
+              >
                 <div
-                  class="w-11 h-11 rounded-xl bg-cemear-green/10 flex items-center justify-center shrink-0"
+                  class="area-icon w-11 h-11 rounded-xl bg-cemear-green/10 flex items-center justify-center shrink-0"
                 >
                   <svg
                     class="w-6 h-6 text-cemear-green"
@@ -1309,24 +1354,28 @@
                   </svg>
                 </div>
                 <h3
-                  class="flex-1 text-base lg:text-lg font-bold text-gray-900 group-open:text-cemear-teal transition-colors"
+                  class="flex-1 text-base lg:text-lg font-bold text-gray-900 group-hover:text-cemear-teal transition-colors"
                 >
                   Psicologia
                 </h3>
-                <svg
-                  class="w-5 h-5 text-gray-400 group-open:text-cemear-teal group-open:rotate-180 transition-all shrink-0"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  stroke-width="2"
+                <span
+                  class="area-plus w-9 h-9 rounded-full bg-gray-100 text-gray-400 flex items-center justify-center shrink-0 transition-all duration-300 group-hover:bg-cemear-teal group-hover:text-white group-hover:rotate-90"
                   aria-hidden="true"
                 >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-                  />
-                </svg>
+                  <svg
+                    class="w-4 h-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="2.2"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M12 4.5v15m7.5-7.5h-15"
+                    />
+                  </svg>
+                </span>
               </summary>
               <div class="px-5 lg:px-6 pb-5 lg:pb-6 -mt-1">
                 <p class="text-gray-500 text-sm leading-relaxed">
@@ -1342,10 +1391,13 @@
             </details>
 
             <!-- Area 8: Psicopedagogia -->
-            <details class="gsap-reveal area-card bg-white rounded-2xl group">
-              <summary class="cursor-pointer p-5 lg:p-6 flex items-center gap-4">
+            <details class="gsap-reveal area-card area-trigger bg-white rounded-2xl group">
+              <summary
+                class="cursor-pointer p-5 lg:p-6 flex items-center gap-4"
+                aria-haspopup="dialog"
+              >
                 <div
-                  class="w-11 h-11 rounded-xl bg-cemear-teal/10 flex items-center justify-center shrink-0"
+                  class="area-icon w-11 h-11 rounded-xl bg-cemear-teal/10 flex items-center justify-center shrink-0"
                 >
                   <svg
                     class="w-6 h-6 text-cemear-teal"
@@ -1363,24 +1415,28 @@
                   </svg>
                 </div>
                 <h3
-                  class="flex-1 text-base lg:text-lg font-bold text-gray-900 group-open:text-cemear-teal transition-colors"
+                  class="flex-1 text-base lg:text-lg font-bold text-gray-900 group-hover:text-cemear-teal transition-colors"
                 >
                   Psicopedagogia
                 </h3>
-                <svg
-                  class="w-5 h-5 text-gray-400 group-open:text-cemear-teal group-open:rotate-180 transition-all shrink-0"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  stroke-width="2"
+                <span
+                  class="area-plus w-9 h-9 rounded-full bg-gray-100 text-gray-400 flex items-center justify-center shrink-0 transition-all duration-300 group-hover:bg-cemear-teal group-hover:text-white group-hover:rotate-90"
                   aria-hidden="true"
                 >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-                  />
-                </svg>
+                  <svg
+                    class="w-4 h-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="2.2"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M12 4.5v15m7.5-7.5h-15"
+                    />
+                  </svg>
+                </span>
               </summary>
               <div class="px-5 lg:px-6 pb-5 lg:pb-6 -mt-1">
                 <p class="text-gray-500 text-sm leading-relaxed">
@@ -1395,10 +1451,13 @@
             </details>
 
             <!-- Area 9: Interdisciplinaridade -->
-            <details class="gsap-reveal area-card bg-white rounded-2xl group">
-              <summary class="cursor-pointer p-5 lg:p-6 flex items-center gap-4">
+            <details class="gsap-reveal area-card area-trigger bg-white rounded-2xl group">
+              <summary
+                class="cursor-pointer p-5 lg:p-6 flex items-center gap-4"
+                aria-haspopup="dialog"
+              >
                 <div
-                  class="w-11 h-11 rounded-xl bg-cemear-teal/10 flex items-center justify-center shrink-0"
+                  class="area-icon w-11 h-11 rounded-xl bg-cemear-teal/10 flex items-center justify-center shrink-0"
                 >
                   <svg
                     class="w-6 h-6 text-cemear-teal"
@@ -1416,24 +1475,28 @@
                   </svg>
                 </div>
                 <h3
-                  class="flex-1 text-base lg:text-lg font-bold text-gray-900 group-open:text-cemear-teal transition-colors"
+                  class="flex-1 text-base lg:text-lg font-bold text-gray-900 group-hover:text-cemear-teal transition-colors"
                 >
                   Interdisciplinaridade
                 </h3>
-                <svg
-                  class="w-5 h-5 text-gray-400 group-open:text-cemear-teal group-open:rotate-180 transition-all shrink-0"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  stroke-width="2"
+                <span
+                  class="area-plus w-9 h-9 rounded-full bg-gray-100 text-gray-400 flex items-center justify-center shrink-0 transition-all duration-300 group-hover:bg-cemear-teal group-hover:text-white group-hover:rotate-90"
                   aria-hidden="true"
                 >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-                  />
-                </svg>
+                  <svg
+                    class="w-4 h-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="2.2"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M12 4.5v15m7.5-7.5h-15"
+                    />
+                  </svg>
+                </span>
               </summary>
               <div class="px-5 lg:px-6 pb-5 lg:pb-6 -mt-1">
                 <p class="text-gray-500 text-sm leading-relaxed">
@@ -3019,6 +3082,44 @@
         </div>
       </div>
     </footer>
+
+    <!-- ═══════════════════════ Modal — Áreas de Atuação ═══════════════════════ -->
+    <div
+      id="area-modal"
+      class="area-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-hidden="true"
+      aria-labelledby="area-modal-title"
+    >
+      <div class="area-modal__backdrop" data-area-close></div>
+      <div class="area-modal__dialog" role="document">
+        <button
+          type="button"
+          class="area-modal__close"
+          data-area-close
+          aria-label="Fechar"
+        >
+          <svg
+            class="w-5 h-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+            aria-hidden="true"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+        <div id="area-modal-icon" class="area-modal__icon"></div>
+        <h3 id="area-modal-title" class="area-modal__title"></h3>
+        <div id="area-modal-body" class="area-modal__body"></div>
+      </div>
+    </div>
 
     <script type="module" src="/src/main.ts"></script>
   </body>

@@ -187,16 +187,12 @@
     box-shadow: 0 12px 40px rgba(25, 162, 135, 0.12);
     transform: translateY(-6px);
   }
-  /* Accordion behavior for area cards using <details> */
+  /* Area cards act as modal triggers (the <details> never opens) */
   details.area-card > summary {
     list-style: none;
   }
   details.area-card > summary::-webkit-details-marker {
     display: none;
-  }
-  details.area-card[open] {
-    border-color: var(--color-cemear-teal);
-    box-shadow: 0 12px 40px rgba(25, 162, 135, 0.12);
   }
 
   /* Differential card */
@@ -252,4 +248,97 @@
   .hamburger-active .hamburger-line:nth-child(3) {
     transform: rotate(-45deg) translate(7px, -6px);
   }
+}
+
+/*
+ * Modal "Áreas de atuação" — intencionalmente fora de @layer.
+ * CSS sem camada vence as utilities do Tailwind (que ficam em uma layer
+ * posterior), permitindo ampliar o badge/ícone e o texto reaproveitados
+ * do card sem brigar por especificidade.
+ */
+.area-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+.area-modal.is-open {
+  display: flex;
+}
+.area-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(8, 47, 41, 0.55);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  cursor: pointer;
+}
+.area-modal__dialog {
+  position: relative;
+  width: 100%;
+  max-width: 34rem;
+  max-height: 90vh;
+  overflow-y: auto;
+  background: #ffffff;
+  border-radius: 1.75rem;
+  padding: 2.75rem 2rem 2.25rem;
+  box-shadow: 0 30px 80px -20px rgba(8, 47, 41, 0.45);
+}
+.area-modal__dialog::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(
+    90deg,
+    var(--color-cemear-teal),
+    var(--color-cemear-green)
+  );
+}
+.area-modal__close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  color: var(--color-gray-400);
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+.area-modal__close:hover {
+  background-color: var(--color-gray-100);
+  color: var(--color-cemear-teal-dark);
+}
+/* Reaproveita o badge do card, ampliado dentro do modal */
+.area-modal__icon .area-icon {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+.area-modal__icon .area-icon svg {
+  width: 2rem;
+  height: 2rem;
+}
+.area-modal__title {
+  font-size: 1.5rem;
+  line-height: 1.25;
+  font-weight: 700;
+  color: var(--color-gray-900);
+  margin-bottom: 0.875rem;
+}
+.area-modal__body p {
+  color: var(--color-gray-500);
+  font-size: 1rem;
+  line-height: 1.7;
 }
