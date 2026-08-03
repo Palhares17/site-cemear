@@ -192,11 +192,13 @@ function initAreaModal(): void {
 
   const backdrop = modal.querySelector<HTMLElement>(".area-modal__backdrop");
   const dialog = modal.querySelector<HTMLElement>(".area-modal__dialog");
+  const mediaHolder = modal.querySelector<HTMLElement>("#area-modal-media");
   const iconHolder = modal.querySelector<HTMLElement>("#area-modal-icon");
   const titleEl = modal.querySelector<HTMLElement>("#area-modal-title");
   const bodyEl = modal.querySelector<HTMLElement>("#area-modal-body");
   const closeBtn = modal.querySelector<HTMLElement>(".area-modal__close");
-  if (!backdrop || !dialog || !iconHolder || !titleEl || !bodyEl) return;
+  if (!backdrop || !dialog || !mediaHolder || !titleEl || !bodyEl || !iconHolder)
+    return;
 
   const prefersReducedMotion = window.matchMedia(
     "(prefers-reduced-motion: reduce)",
@@ -216,12 +218,39 @@ function initAreaModal(): void {
     const content =
       trigger.querySelector<HTMLElement>("summary")?.nextElementSibling;
     iconHolder.innerHTML = icon ? icon.outerHTML : "";
-    titleEl.textContent = title?.textContent?.trim() ?? "";
+    const titleText = title?.textContent?.trim() ?? "";
+    titleEl.textContent = titleText;
     bodyEl.innerHTML = content ? content.innerHTML : "";
+
+    // Mídia opcional: vídeo do YouTube ou imagem de destaque do card
+    const videoId = trigger.dataset.areaVideo;
+    const imageSrc = trigger.dataset.areaImage;
+    if (videoId) {
+      const frame = document.createElement("iframe");
+      frame.src = `https://www.youtube.com/embed/${videoId}?rel=0`;
+      frame.title = titleText;
+      frame.loading = "lazy";
+      frame.allow =
+        "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+      frame.allowFullscreen = true;
+      mediaHolder.replaceChildren(frame);
+    } else if (imageSrc) {
+      const img = document.createElement("img");
+      img.src = imageSrc;
+      img.alt = titleText;
+      img.loading = "lazy";
+      mediaHolder.replaceChildren(img);
+    } else {
+      mediaHolder.replaceChildren();
+    }
+    const hasMedia = Boolean(videoId || imageSrc);
+    mediaHolder.classList.toggle("has-media", hasMedia);
+    modal.classList.toggle("has-media", hasMedia);
 
     modal.classList.add("is-open");
     modal.setAttribute("aria-hidden", "false");
     document.body.style.overflow = "hidden";
+    dialog.scrollTop = 0;
     closeBtn?.focus();
 
     if (prefersReducedMotion) {
@@ -243,7 +272,7 @@ function initAreaModal(): void {
         "-=0.15",
       )
       .fromTo(
-        [iconHolder, titleEl, bodyEl],
+        [mediaHolder, iconHolder, titleEl, bodyEl],
         { opacity: 0, y: 16 },
         { opacity: 1, y: 0, duration: 0.4, stagger: 0.08, ease: "power2.out" },
         "-=0.3",
@@ -258,6 +287,10 @@ function initAreaModal(): void {
 
     const finish = (): void => {
       modal.classList.remove("is-open");
+      // Remove o iframe/imagem para interromper a reprodução do vídeo
+      mediaHolder.replaceChildren();
+      mediaHolder.classList.remove("has-media");
+      modal.classList.remove("has-media");
       lastFocused?.focus();
     };
 

@@ -319,6 +319,31 @@
   background-color: var(--color-gray-100);
   color: var(--color-cemear-teal-dark);
 }
+/* Sobre a mídia o botão precisa de fundo próprio para continuar legível */
+.area-modal.has-media .area-modal__close {
+  background-color: rgba(255, 255, 255, 0.92);
+  color: var(--color-cemear-teal-dark);
+  box-shadow: 0 4px 14px -4px rgba(8, 47, 41, 0.45);
+}
+/* Mídia (imagem ou vídeo) sangrada no topo do modal */
+.area-modal__media {
+  display: none;
+  margin: -2.75rem -2rem 1.5rem;
+  overflow: hidden;
+  border-radius: 1.75rem 1.75rem 0 0;
+  background-color: var(--color-gray-100);
+}
+.area-modal__media.has-media {
+  display: block;
+}
+.area-modal__media img,
+.area-modal__media iframe {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border: 0;
+}
 /* Reaproveita o badge do card, ampliado dentro do modal */
 .area-modal__icon .area-icon {
   width: 4rem;
