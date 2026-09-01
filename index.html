@@ -77,8 +77,13 @@
           },
           {
             "@type": "MedicalProcedure",
-            "name": "Reabilitação Auditiva e Aparelho Auditivo",
+            "name": "Reabilitação Auditiva e Aparelho Auditivo (AASI)",
             "url": "https://cemear.org.br/aparelho-auditivo-sus.html"
+          },
+          {
+            "@type": "MedicalProcedure",
+            "name": "Terapia Fonoaudiológica do Deficiente Auditivo",
+            "url": "https://cemear.org.br/reabilitacao-auditiva-sus.html"
           },
           {
             "@type": "MedicalProcedure",
@@ -112,7 +117,7 @@
     <!-- ═══════════════════════ HEADER / NAV ═══════════════════════ -->
     <header
       id="header"
-      class="fixed top-0 left-0 w-full z-50 transition-all duration-500 bg-white/0"
+      class="fixed top-0 left-0 w-full z-50"
     >
       <div
         class="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between h-20"
@@ -128,7 +133,7 @@
 
         <!-- Desktop Nav -->
         <nav
-          class="hidden lg:flex items-center gap-8"
+          class="hidden lg:flex items-center gap-5 xl:gap-8"
           aria-label="Navegação principal"
         >
           <a
@@ -160,6 +165,11 @@
             href="#equipe"
             class="nav-link text-sm font-medium text-gray-600 hover:text-cemear-teal transition-colors"
             >Equipe</a
+          >
+          <a
+            href="#apoie"
+            class="nav-link text-sm font-medium text-gray-600 hover:text-cemear-teal transition-colors"
+            >Apoie</a
           >
           <a
             href="#localizacao"
@@ -240,6 +250,11 @@
             href="#equipe"
             class="mobile-nav-link text-base font-medium text-gray-700 hover:text-cemear-teal py-2 border-b border-gray-100"
             >Equipe</a
+          >
+          <a
+            href="#apoie"
+            class="mobile-nav-link text-base font-medium text-gray-700 hover:text-cemear-teal py-2 border-b border-gray-100"
+            >Apoie o CEMEAR</a
           >
           <a
             href="#localizacao"
@@ -839,7 +854,9 @@
 
           <!-- Bloco 1: acesso ao SUS — 3 cards de contexto -->
           <div class="text-center mb-8"></div>
-          <div class="grid md:grid-cols-3 gap-8 mb-16 lg:mb-20">
+          <div
+            class="grid md:grid-cols-2 gap-8 mb-16 lg:mb-20 max-w-4xl mx-auto"
+          >
             <!-- Card 1: Acesso pelo SUS -->
             <div class="gsap-reveal">
               <div
@@ -876,50 +893,7 @@
               </div>
             </div>
 
-            <!-- Card 2: Caminho via UBS -->
-            <div class="gsap-reveal">
-              <div
-                class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow h-full"
-              >
-                <div
-                  class="w-14 h-14 rounded-2xl bg-cemear-green/10 flex items-center justify-center mb-6"
-                >
-                  <svg
-                    class="w-7 h-7 text-cemear-green"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    stroke-width="1.5"
-                    aria-hidden="true"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"
-                    />
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"
-                    />
-                  </svg>
-                </div>
-                <h3 class="text-lg font-bold text-gray-900 mb-3">
-                  Caminho via UBS
-                </h3>
-                <p class="text-gray-500 text-sm leading-relaxed">
-                  Procure a
-                  <strong class="text-gray-700"
-                    >Unidade Básica de Saúde (UBS)</strong
-                  >
-                  de sua referência. Após avaliação inicial, caso haja
-                  indicação, o encaminhamento é feito pela rede SUS, responsável
-                  pelo agendamento conforme os critérios de regulação.
-                </p>
-              </div>
-            </div>
-
-            <!-- Card 3: Atuação especializada -->
+            <!-- Card 2: Atuação especializada -->
             <div class="gsap-reveal">
               <div
                 class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow h-full"
@@ -949,8 +923,10 @@
                   O CEMEAR atua na oferta de
                   <strong class="text-gray-700"
                     >diagnóstico e terapia especializados</strong
-                  >, com foco na excelência do atendimento — promovendo a
-                  inclusão e a qualidade de vida das pessoas com deficiência.
+                  >
+                  em saúde auditiva, com foco na excelência do atendimento,
+                  promovendo a inclusão e a qualidade de vida das pessoas com
+                  deficiência auditiva.
                 </p>
               </div>
             </div>
@@ -1034,7 +1010,74 @@
               </div>
             </details>
 
-            <!-- Area 2: Reabilitação Auditiva -->
+            <!-- Area 2: Reabilitação Auditiva (Saúde Auditiva) -->
+            <details
+              class="gsap-reveal area-card area-trigger bg-white rounded-2xl group"
+            >
+              <summary
+                class="cursor-pointer p-5 lg:p-6 flex items-center gap-4"
+                aria-haspopup="dialog"
+              >
+                <div
+                  class="area-icon w-11 h-11 rounded-xl bg-cemear-green/10 flex items-center justify-center shrink-0"
+                >
+                  <svg
+                    class="w-6 h-6 text-cemear-green"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    aria-hidden="true"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M6.75 8.25a5.25 5.25 0 1110.5 0c0 2.03-.98 3.34-2.06 4.4-.9.88-1.69 1.62-1.69 2.98a2.25 2.25 0 11-4.5 0"
+                    />
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M10.5 8.25a1.5 1.5 0 013 0"
+                    />
+                  </svg>
+                </div>
+                <h3
+                  class="flex-1 text-base lg:text-lg font-bold text-gray-900 group-hover:text-cemear-teal transition-colors"
+                >
+                  Reabilitação Auditiva (Saúde Auditiva)
+                </h3>
+                <span
+                  class="area-plus w-9 h-9 rounded-full bg-gray-100 text-gray-400 flex items-center justify-center shrink-0 transition-all duration-300 group-hover:bg-cemear-teal group-hover:text-white group-hover:rotate-90"
+                  aria-hidden="true"
+                >
+                  <svg
+                    class="w-4 h-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="2.2"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M12 4.5v15m7.5-7.5h-15"
+                    />
+                  </svg>
+                </span>
+              </summary>
+              <div class="px-5 lg:px-6 pb-5 lg:pb-6 -mt-1">
+                <p class="text-gray-500 text-sm leading-relaxed">
+                  Atendimento especializado para pessoas com deficiência
+                  auditiva, com avaliação audiológica, seleção, indicação,
+                  adaptação e acompanhamento de AASI. O programa oferece
+                  orientação ao usuário e à família, ajustes e reavaliações,
+                  promovendo o uso adequado da tecnologia assistiva e a melhoria
+                  da comunicação e da qualidade de vida.
+                </p>
+              </div>
+            </details>
+
+            <!-- Area 3: Terapia Fonoaudiológica do Deficiente Auditivo -->
             <details
               class="gsap-reveal area-card area-trigger bg-white rounded-2xl group"
               data-area-video="0-oBywUMZfM"
@@ -1064,7 +1107,7 @@
                 <h3
                   class="flex-1 text-base lg:text-lg font-bold text-gray-900 group-hover:text-cemear-teal transition-colors"
                 >
-                  Reabilitação Auditiva
+                  Terapia Fonoaudiológica do Deficiente Auditivo
                 </h3>
                 <span
                   class="area-plus w-9 h-9 rounded-full bg-gray-100 text-gray-400 flex items-center justify-center shrink-0 transition-all duration-300 group-hover:bg-cemear-teal group-hover:text-white group-hover:rotate-90"
@@ -1098,7 +1141,7 @@
               </div>
             </details>
 
-            <!-- Area 3: Reabilitação do Processamento Auditivo Central -->
+            <!-- Area 4: Reabilitação do Processamento Auditivo Central -->
             <details
               class="gsap-reveal area-card area-trigger bg-white rounded-2xl group"
               data-area-image="/Reabilitacao-auditiva-do-processamento-auditivo-central-destaque.jpg"
@@ -1161,7 +1204,7 @@
               </div>
             </details>
 
-            <!-- Area 4: Reabilitação Vestibular -->
+            <!-- Area 5: Reabilitação Vestibular -->
             <details
               class="gsap-reveal area-card area-trigger bg-white rounded-2xl group"
               data-area-image="/Reabilitacao-Vestibular-Destaque-Reabilitacao.jpg"
@@ -1224,7 +1267,7 @@
               </div>
             </details>
 
-            <!-- Area 5: Reabilitação de Zumbido -->
+            <!-- Area 6: Reabilitação de Zumbido -->
             <details
               class="gsap-reveal area-card area-trigger bg-white rounded-2xl group"
               data-area-image="/Reabilitacao-do-Zumbido-Destaque-reabilitacao-.jpg"
@@ -1287,7 +1330,7 @@
               </div>
             </details>
 
-            <!-- Area 6: Serviço Social -->
+            <!-- Area 7: Serviço Social -->
             <details
               class="gsap-reveal area-card area-trigger bg-white rounded-2xl group"
               data-area-image="/Servico-Social-Destaque-Reabilitacao.jpg"
@@ -1349,7 +1392,7 @@
               </div>
             </details>
 
-            <!-- Area 7: Psicologia -->
+            <!-- Area 8: Psicologia -->
             <details
               class="gsap-reveal area-card area-trigger bg-white rounded-2xl group"
               data-area-image="/Psicologia-Destaque-Reabilitacao.jpg"
@@ -1413,7 +1456,7 @@
               </div>
             </details>
 
-            <!-- Area 8: Psicopedagogia -->
+            <!-- Area 9: Psicopedagogia -->
             <details
               class="gsap-reveal area-card area-trigger bg-white rounded-2xl group"
               data-area-image="/Psicopedagogia-Destaque-reabilitacao.jpg"
@@ -1476,7 +1519,7 @@
               </div>
             </details>
 
-            <!-- Area 9: Interdisciplinaridade -->
+            <!-- Area 10: Interdisciplinaridade -->
             <details class="gsap-reveal area-card area-trigger bg-white rounded-2xl group">
               <summary
                 class="cursor-pointer p-5 lg:p-6 flex items-center gap-4"
@@ -1553,7 +1596,7 @@
           <div class="text-center max-w-2xl mx-auto mb-14 lg:mb-16">
             <span
               class="gsap-reveal inline-block text-cemear-teal font-semibold text-sm uppercase tracking-widest mb-4"
-              >Avaliação diagnóstica</span
+              >Diagnóstico auditivo</span
             >
             <h2
               class="gsap-reveal text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mb-5"
@@ -1562,8 +1605,8 @@
             </h2>
             <p class="gsap-reveal text-gray-600 text-lg leading-relaxed">
               Avaliamos os sistemas auditivo e vestibular com exames
-              especializados, atendendo pacientes de todas as idades. A
-              avaliação diagnóstica é fundamental para definição de condutas
+              especializados, atendendo pacientes de todas as idades. O
+              diagnóstico auditivo é fundamental para definição de condutas
               terapêuticas e acompanhamento clínico.
             </p>
           </div>
@@ -1927,8 +1970,9 @@
                 Nossos <span class="text-cemear-teal">diferenciais</span>
               </h2>
               <p class="gsap-reveal text-gray-500 text-lg leading-relaxed mb-8">
-                Combinamos competência técnica com acolhimento genuíno para
-                oferecer o melhor cuidado em saúde auditiva do estado.
+                Combinamos competência técnica com acolhimento genuíno,
+                respeito e compromisso para oferecer cuidado em saúde auditiva
+                cada vez mais qualificado e humanizado para todo o estado.
               </p>
               <!-- Stats -->
               <div class="gsap-reveal grid grid-cols-2 gap-6">
@@ -2243,6 +2287,254 @@
         </div>
       </section>
 
+      <!-- ═══════════════════════ 6b. APOIE O CEMEAR ═══════════════════════ -->
+      <section id="apoie" class="py-24 lg:py-32 bg-white scroll-mt-20">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+          <div class="text-center max-w-2xl mx-auto mb-16 lg:mb-20">
+            <span
+              class="gsap-reveal inline-block text-cemear-teal font-semibold text-sm uppercase tracking-widest mb-4"
+              >Transparência e apoio</span
+            >
+            <h2
+              class="gsap-reveal text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mb-5"
+            >
+              Quem <span class="text-cemear-teal">apoia</span> o CEMEAR
+            </h2>
+            <p class="gsap-reveal text-gray-500 text-lg">
+              O CEMEAR é mantido pelo financiamento do SUS, com o apoio da
+              iniciativa privada, de doações da sociedade civil e de recursos
+              provenientes de emendas parlamentares — o que garante a
+              continuidade e a qualidade dos serviços oferecidos.
+            </p>
+          </div>
+
+          <div class="gsap-reveal grid md:grid-cols-3 gap-8 mb-16 lg:mb-20">
+            <!-- Projetos -->
+            <div
+              class="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm text-center"
+            >
+              <div
+                class="w-14 h-14 rounded-2xl bg-cemear-teal/10 flex items-center justify-center mx-auto mb-5"
+              >
+                <svg
+                  class="w-7 h-7 text-cemear-teal"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  aria-hidden="true"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.63 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"
+                  />
+                </svg>
+              </div>
+              <h3 class="text-xl font-bold text-gray-900 mb-2">Projetos</h3>
+              <!-- TODO: cliente revisar/enviar a lista de projetos atuais -->
+              <p class="text-gray-500 text-sm leading-relaxed">
+                Desde 2016 o CEMEAR desenvolve projetos aprovados no
+                <strong class="text-gray-700">PRONAS/PCD</strong>, ampliando as
+                ações assistenciais, a capacitação de profissionais e a
+                integração com os serviços estaduais de saúde auditiva.
+              </p>
+            </div>
+
+            <!-- Como doar -->
+            <div
+              class="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm text-center"
+            >
+              <div
+                class="w-14 h-14 rounded-2xl bg-cemear-green/10 flex items-center justify-center mx-auto mb-5"
+              >
+                <svg
+                  class="w-7 h-7 text-cemear-green"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  aria-hidden="true"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"
+                  />
+                </svg>
+              </div>
+              <h3 class="text-xl font-bold text-gray-900 mb-2">Como doar</h3>
+              <!-- TODO: incluir chave PIX, banco/agência/conta e contato do setor responsável -->
+              <p class="text-gray-500 text-sm leading-relaxed">
+                Sua doação ajuda a manter e ampliar o atendimento gratuito em
+                saúde auditiva. Pessoas físicas e empresas podem contribuir —
+                fale com a equipe pelo telefone
+                <a
+                  href="tel:+553133726631"
+                  class="text-cemear-teal font-semibold hover:underline"
+                  >(31) 3372-6631</a
+                >
+                para receber as orientações. CNPJ 07.953.849/0001-29.
+              </p>
+            </div>
+
+            <!-- Parceiros e apoiadores -->
+            <div
+              class="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm text-center"
+            >
+              <div
+                class="w-14 h-14 rounded-2xl bg-cemear-teal/10 flex items-center justify-center mx-auto mb-5"
+              >
+                <svg
+                  class="w-7 h-7 text-cemear-teal"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  aria-hidden="true"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z"
+                  />
+                </svg>
+              </div>
+              <h3 class="text-xl font-bold text-gray-900 mb-2">
+                Parceiros e apoiadores
+              </h3>
+              <p class="text-gray-500 text-sm leading-relaxed">
+                Contamos com o apoio do
+                <strong class="text-gray-700"
+                  >Instituto Vilma Pereira de Sousa</strong
+                >, de empresas privadas, parceiros institucionais e doadores que
+                acreditam na causa da saúde auditiva.
+              </p>
+            </div>
+          </div>
+
+          <h3
+            class="gsap-reveal text-center text-sm font-semibold uppercase tracking-widest text-gray-400 mb-8"
+          >
+            Parceiros e apoiadores
+          </h3>
+          <ul
+            class="gsap-reveal flex flex-wrap justify-center gap-6 max-w-5xl mx-auto"
+          >
+            <li
+              class="bg-white rounded-xl border border-gray-200 p-4 flex items-center justify-center h-28 basis-[calc(50%-0.75rem)] sm:basis-[calc(33.333%-1rem)] lg:basis-[calc(20%-1.2rem)]"
+            >
+              <img
+                src="/logos/instituto-vilma-pereira-de-sousa.jpeg"
+                alt="Instituto Vilma Pereira de Sousa"
+                loading="lazy"
+                class="max-h-20 max-w-full w-auto object-contain opacity-90 hover:opacity-100 transition duration-300"
+              />
+            </li>
+            <li
+              class="bg-white rounded-xl border border-gray-200 p-4 flex items-center justify-center h-28 basis-[calc(50%-0.75rem)] sm:basis-[calc(33.333%-1rem)] lg:basis-[calc(20%-1.2rem)]"
+            >
+              <img
+                src="/logos/instituto-superatum.jpeg"
+                alt="Instituto Superatum"
+                loading="lazy"
+                class="max-h-20 max-w-full w-auto object-contain opacity-90 hover:opacity-100 transition duration-300"
+              />
+            </li>
+            <li
+              class="bg-white rounded-xl border border-gray-200 p-4 flex items-center justify-center h-28 basis-[calc(50%-0.75rem)] sm:basis-[calc(33.333%-1rem)] lg:basis-[calc(20%-1.2rem)]"
+            >
+              <img
+                src="/logos/vale.jpeg"
+                alt="Vale"
+                loading="lazy"
+                class="max-h-20 max-w-full w-auto object-contain opacity-90 hover:opacity-100 transition duration-300"
+              />
+            </li>
+            <li
+              class="bg-white rounded-xl border border-gray-200 p-4 flex items-center justify-center h-28 basis-[calc(50%-0.75rem)] sm:basis-[calc(33.333%-1rem)] lg:basis-[calc(20%-1.2rem)]"
+            >
+              <img
+                src="/logos/anglogold-ashanti.jpeg"
+                alt="AngloGold Ashanti"
+                loading="lazy"
+                class="max-h-20 max-w-full w-auto object-contain opacity-90 hover:opacity-100 transition duration-300"
+              />
+            </li>
+            <li
+              class="bg-white rounded-xl border border-gray-200 p-4 flex items-center justify-center h-28 basis-[calc(50%-0.75rem)] sm:basis-[calc(33.333%-1rem)] lg:basis-[calc(20%-1.2rem)]"
+            >
+              <img
+                src="/logos/mart-minas.jpeg"
+                alt="Mart Minas"
+                loading="lazy"
+                class="max-h-20 max-w-full w-auto object-contain opacity-90 hover:opacity-100 transition duration-300"
+              />
+            </li>
+            <li
+              class="bg-white rounded-xl border border-gray-200 p-4 flex items-center justify-center h-28 basis-[calc(50%-0.75rem)] sm:basis-[calc(33.333%-1rem)] lg:basis-[calc(20%-1.2rem)]"
+            >
+              <img
+                src="/logos/grupo-aterpa.jpeg"
+                alt="Grupo Aterpa"
+                loading="lazy"
+                class="max-h-20 max-w-full w-auto object-contain opacity-90 hover:opacity-100 transition duration-300"
+              />
+            </li>
+            <li
+              class="bg-white rounded-xl border border-gray-200 p-4 flex items-center justify-center h-28 basis-[calc(50%-0.75rem)] sm:basis-[calc(33.333%-1rem)] lg:basis-[calc(20%-1.2rem)]"
+            >
+              <img
+                src="/logos/jdantas.jpeg"
+                alt="JDantas"
+                loading="lazy"
+                class="max-h-20 max-w-full w-auto object-contain opacity-90 hover:opacity-100 transition duration-300"
+              />
+            </li>
+            <li
+              class="bg-white rounded-xl border border-gray-200 p-4 flex items-center justify-center h-28 basis-[calc(50%-0.75rem)] sm:basis-[calc(33.333%-1rem)] lg:basis-[calc(20%-1.2rem)]"
+            >
+              <img
+                src="/logos/2b-supermercado.jpeg"
+                alt="2B Supermercado"
+                loading="lazy"
+                class="max-h-20 max-w-full w-auto object-contain opacity-90 hover:opacity-100 transition duration-300"
+              />
+            </li>
+            <li
+              class="bg-white rounded-xl border border-gray-200 p-4 flex items-center justify-center h-28 basis-[calc(50%-0.75rem)] sm:basis-[calc(33.333%-1rem)] lg:basis-[calc(20%-1.2rem)]"
+            >
+              <img
+                src="/logos/mascarenhas-barbosa-roscoe.jpeg"
+                alt="Mascarenhas Barbosa Roscoe Construções"
+                loading="lazy"
+                class="max-h-20 max-w-full w-auto object-contain opacity-90 hover:opacity-100 transition duration-300"
+              />
+            </li>
+            <li
+              class="bg-white rounded-xl border border-gray-200 p-4 flex items-center justify-center h-28 basis-[calc(50%-0.75rem)] sm:basis-[calc(33.333%-1rem)] lg:basis-[calc(20%-1.2rem)]"
+            >
+              <img
+                src="/logos/zummit.jpeg"
+                alt="Zummit"
+                loading="lazy"
+                class="max-h-20 max-w-full w-auto object-contain opacity-90 hover:opacity-100 transition duration-300"
+              />
+            </li>
+            <li
+              class="bg-white rounded-xl border border-gray-200 p-4 flex items-center justify-center h-28 basis-[calc(50%-0.75rem)] sm:basis-[calc(33.333%-1rem)] lg:basis-[calc(20%-1.2rem)]"
+            >
+              <img
+                src="/logos/apia.jpeg"
+                alt="Ápia"
+                loading="lazy"
+                class="max-h-20 max-w-full w-auto object-contain opacity-90 hover:opacity-100 transition duration-300"
+              />
+            </li>
+          </ul>
+        </div>
+      </section>
+
       <!-- ═══════════════════════ FAQ ═══════════════════════ -->
       <section id="faq" class="py-24 lg:py-32 bg-white scroll-mt-20">
         <div class="max-w-3xl mx-auto px-6 lg:px-12">
@@ -2262,43 +2554,6 @@
           </div>
 
           <div class="gsap-reveal space-y-3">
-            <!-- FAQ 1 -->
-            <details
-              class="faq-item group border border-gray-200 rounded-2xl overflow-hidden"
-            >
-              <summary
-                class="flex items-center justify-between px-6 py-5 cursor-pointer list-none"
-              >
-                <span class="font-semibold text-gray-900 pr-4"
-                  >Preciso de encaminhamento médico para ser atendido no
-                  CEMEAR?</span
-                >
-                <svg
-                  class="w-5 h-5 text-cemear-teal shrink-0 transition-transform duration-300 group-open:rotate-180"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-                  />
-                </svg>
-              </summary>
-              <div
-                class="px-6 pb-6 text-gray-600 leading-relaxed border-t border-gray-100 pt-4"
-              >
-                Sim. O atendimento no CEMEAR é realizado pelo SUS e segue o
-                fluxo oficial de regulação. O primeiro passo é procurar a
-                <strong>Unidade Básica de Saúde (UBS)</strong> do seu território
-                e solicitar encaminhamento para avaliação auditiva. Com o
-                encaminhamento em mãos, a regulação do SUS irá agendar sua
-                consulta no CEMEAR.
-              </div>
-            </details>
-
             <!-- FAQ 2 -->
             <details
               class="faq-item group border border-gray-200 rounded-2xl overflow-hidden"
@@ -2326,11 +2581,15 @@
               <div
                 class="px-6 pb-6 text-gray-600 leading-relaxed border-t border-gray-100 pt-4"
               >
-                <strong>Não.</strong> Todo o atendimento no CEMEAR é
-                <strong>100% gratuito</strong>, realizado pelo Sistema Único de
-                Saúde (SUS). Isso inclui consultas, exames diagnósticos,
-                reabilitação e, quando indicado, a adaptação do aparelho
-                auditivo.
+                <strong>Não.</strong> Os atendimentos realizados no CEMEAR são
+                <strong>100% gratuitos</strong> para os usuários e integram o
+                Sistema Único de Saúde (SUS). O CEMEAR é mantido por meio do
+                financiamento do SUS, com o apoio da iniciativa privada, de
+                doações da sociedade civil e de recursos provenientes de emendas
+                parlamentares, que contribuem para a continuidade e a qualidade
+                dos serviços oferecidos. Isso inclui consultas, exames
+                diagnósticos, reabilitação e, quando indicado, a adaptação do
+                aparelho auditivo.
               </div>
             </details>
 
@@ -2402,8 +2661,8 @@
                   >adaptação e acompanhamento de Aparelhos de Amplificação
                   Sonora Individual (AASI)</strong
                 >
-                via SUS, de forma completamente gratuita. O processo inclui a
-                seleção, adaptação e reabilitação auditiva com o aparelho.
+                via SUS. O processo inclui a seleção, adaptação e reabilitação
+                auditiva com o aparelho.
               </div>
             </details>
 
@@ -2437,7 +2696,7 @@
                 Para a primeira consulta, leve:
                 <strong>documento de identidade com foto</strong>,
                 <strong>CPF</strong>, <strong>cartão do SUS</strong>,
-                <strong>encaminhamento médico</strong> da UBS, e exames
+                <strong>encaminhamento do profissional</strong>, e exames
                 anteriores relacionados à audição ou saúde geral (se houver).
                 Para crianças, leve também a certidão de nascimento e documento
                 do responsável.
@@ -2513,9 +2772,7 @@
                 O tempo de reabilitação varia de acordo com cada caso — tipo e
                 grau da perda auditiva, idade do paciente e resposta individual
                 ao tratamento. O CEMEAR realiza um
-                <strong>acompanhamento contínuo e individualizado</strong>,
-                desde o diagnóstico até a reabilitação completa, garantindo
-                suporte em todas as etapas do cuidado.
+                <strong>acompanhamento contínuo e individualizado</strong>.
               </div>
             </details>
 
@@ -2546,11 +2803,12 @@
               <div
                 class="px-6 pb-6 text-gray-600 leading-relaxed border-t border-gray-100 pt-4"
               >
-                Sim. O CEMEAR conta com serviço especializado em
-                <strong>reabilitação vestibular</strong>, voltado ao tratamento
-                de distúrbios do equilíbrio, vertigem e tontura. Para o zumbido
-                (tinnitus), a equipe realiza avaliação e orientações específicas
-                dentro do acompanhamento audiológico.
+                Sim. O CEMEAR conta com dois serviços especializados de
+                terapia: <strong>Reabilitação Vestibular</strong>, voltada ao
+                tratamento de tontura, vertigem e distúrbios do equilíbrio, e
+                <strong>Reabilitação de Zumbido</strong>, com acompanhamento
+                terapêutico individualizado para reduzir o incômodo causado pelo
+                zumbido e melhorar a qualidade de vida.
               </div>
             </details>
           </div>
@@ -2686,9 +2944,8 @@
               >
                 <p class="text-sm text-gray-700 leading-relaxed">
                   <strong class="text-cemear-teal">Lembre-se:</strong> o
-                  agendamento é feito pela regulação do SUS mediante
-                  encaminhamento da sua UBS. Não é possível agendar diretamente
-                  pelo telefone.
+                  agendamento é feito pela regulação do SUS. Não é possível
+                  agendar diretamente pelo telefone.
                 </p>
               </div>
             </div>
@@ -2734,9 +2991,9 @@
                 <span class="text-cemear-teal">saúde auditiva</span>?
               </h2>
               <p class="text-gray-500 text-lg mb-10 leading-relaxed">
-                O primeiro passo é procurar a Unidade Básica de Saúde (UBS) mais
-                próxima e solicitar encaminhamento. Todo o atendimento no CEMEAR
-                é realizado pelo SUS, de forma gratuita e acessível.
+                O primeiro passo é solicitar o encaminhamento ao profissional de
+                saúde que acompanha você. Todo o atendimento no CEMEAR é
+                realizado pelo SUS, de forma gratuita e acessível.
               </p>
               <div class="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
@@ -2818,6 +3075,11 @@
                 >Equipe</a
               >
               <a
+                href="#apoie"
+                class="text-gray-400 hover:text-white text-sm transition-colors"
+                >Apoie o CEMEAR</a
+              >
+              <a
                 href="#localizacao"
                 class="text-gray-400 hover:text-white text-sm transition-colors"
                 >Localização</a
@@ -2880,7 +3142,7 @@
                 Belo Horizonte — MG · CEP 30411-191
               </p>
               <p>Atendimento 100% via SUS</p>
-              <p>Procure a UBS mais próxima para encaminhamento</p>
+              <p>Atendimento mediante encaminhamento e regulação do SUS</p>
             </div>
           </div>
         </div>
