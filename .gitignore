@@ -23,3 +23,6 @@ dist-ssr
 *.sln
 *.sw?
 planejamento_CMA(1).html
+
+# Claude Code (configuração local do editor/agente)
+.claude/
