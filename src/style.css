@@ -35,7 +35,8 @@
 /* --- Base Styles --- */
 @layer base {
   html {
-    scroll-behavior: smooth;
+    /* Sem scroll-behavior: smooth — o ScrollToPlugin controla as âncoras.
+       Os dois juntos brigavam pelo mesmo scroll. */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -53,18 +54,70 @@
     color: #ffffff;
   }
 
-  /* Smooth reveal class for GSAP */
+  /* Estado inicial das revelações. O GSAP reescreve isso inline assim que
+     assume; serve de rede caso o JS falhe ou ainda não tenha rodado. */
   .gsap-reveal {
     opacity: 0;
-    transform: translateY(40px);
+    transform: translateY(32px);
   }
 
-  /* Accessibility: reduce motion fallback */
+  /* Movimento reduzido: o conteúdo já nasce assentado.
+     A media query cobre o intervalo antes do JS rodar; a classe .motion-reduced
+     é aplicada pelo gsap.matchMedia e cobre a troca de preferência em sessão. */
   @media (prefers-reduced-motion: reduce) {
     .gsap-reveal {
       opacity: 1;
       transform: none;
     }
+  }
+
+  html.motion-reduced .gsap-reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ──────────────────────────────────────────────
+   Header: a pintura do fundo vive num ::before que só transiciona opacidade.
+   backdrop-filter não interpola de "ausente" para "presente" — ligar a classe
+   direto no elemento fazia o header estalar ao passar dos 80px de scroll.
+   ────────────────────────────────────────────── */
+#header {
+  --header-paint: 0;
+}
+
+#header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgb(255 255 255 / 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow:
+    0 1px 0 rgb(17 24 39 / 0.05),
+    0 12px 32px -24px rgb(17 24 39 / 0.35);
+  opacity: var(--header-paint);
+  transition: opacity 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+}
+
+#header.is-scrolled {
+  --header-paint: 1;
+}
+
+/* Conteúdo do header acima da camada pintada */
+#header > * {
+  position: relative;
+}
+
+/* O menu mobile anima a altura — precisa recortar o excedente */
+#mobile-menu {
+  overflow: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #header::before {
+    transition: none;
   }
 }
 

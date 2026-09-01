@@ -1,153 +1,240 @@
 /**
  * CEMEAR — Main TypeScript Entry
- * GSAP scroll animations, navigation interactions, header behavior
+ *
+ * Sistema de movimento: uma única curva de easing para o site inteiro e um
+ * único loop de animação (o rAF do GSAP). Nada de listener de scroll cru
+ * disputando a thread principal.
+ *
+ * Sem overshoot em nenhum lugar: o CEMEAR trata vertigem e distúrbios do
+ * equilíbrio — movimento elástico seria uma escolha errada para este público.
  */
 
 import "./style.css";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+import { CustomEase } from "gsap/CustomEase";
 
-// Register GSAP plugins
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, CustomEase);
+
+// Curva assinatura: saída longa e decidida, chega e assenta sem quicar.
+CustomEase.create("cemear", "M0,0 C0.22,1 0.36,1 1,1");
+
+gsap.defaults({ ease: "cemear", duration: 0.9 });
+
+// Evita refresh a cada aparecer/sumir da barra de endereço no mobile.
+ScrollTrigger.config({ ignoreMobileResize: true });
+
+/** Altura do header fixo — usada como respiro nas âncoras. */
+const HEADER_OFFSET = 80;
+
+const prefersReduced = (): boolean =>
+  window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 // ──────────────────────────────────────────────
-// 1. GSAP Scroll Reveal Animations
+// 1. Entrada do hero
 // ──────────────────────────────────────────────
-function initScrollAnimations(): void {
-  const reveals = document.querySelectorAll<HTMLElement>(".gsap-reveal");
+function initHero(): void {
+  const elements = gsap.utils.toArray<HTMLElement>("#hero .gsap-reveal");
+  if (!elements.length) return;
 
-  reveals.forEach((el, index) => {
-    gsap.fromTo(
-      el,
-      { opacity: 0, y: 40 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        delay: (index % 4) * 0.1, // Stagger within groups
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: el,
-          start: "top 88%",
-          once: true,
-        },
-      },
-    );
+  gsap.set(elements, { opacity: 0, y: 34 });
+  gsap.to(elements, {
+    opacity: 1,
+    y: 0,
+    duration: 1.1,
+    stagger: 0.09,
+    delay: 0.15,
+    clearProps: "willChange",
   });
 }
 
 // ──────────────────────────────────────────────
-// 2. Hero-specific entrance animation
+// 2. Revelação em ondas
+//
+// ScrollTrigger.batch agrupa o que entra na viewport junto, então uma fileira
+// de cards escalona como um gesto só — em vez de um ScrollTrigger por elemento
+// com atraso tirado da ordem do documento.
 // ──────────────────────────────────────────────
-function initHeroAnimation(): void {
-  const heroElements = document.querySelectorAll("#hero .gsap-reveal");
+function initReveals(): void {
+  const reveals = gsap.utils
+    .toArray<HTMLElement>(".gsap-reveal")
+    .filter((el) => !el.closest("#hero"));
+  if (!reveals.length) return;
 
-  gsap.fromTo(
-    heroElements,
-    { opacity: 0, y: 50 },
-    {
-      opacity: 1,
-      y: 0,
-      duration: 1,
-      stagger: 0.15,
-      ease: "power3.out",
-      delay: 0.3,
+  gsap.set(reveals, { opacity: 0, y: 32, willChange: "opacity, transform" });
+
+  ScrollTrigger.batch(reveals, {
+    start: "top 88%",
+    once: true,
+    interval: 0.08,
+    batchMax: 6,
+    onEnter: (batch) => {
+      gsap.to(batch, {
+        opacity: 1,
+        y: 0,
+        duration: 0.9,
+        stagger: { each: 0.07, from: "start" },
+        overwrite: true,
+        onComplete: () => gsap.set(batch, { willChange: "auto" }),
+      });
     },
-  );
+  });
 }
 
 // ──────────────────────────────────────────────
-// 3. Header scroll behavior (solid on scroll)
+// 3. Atmosfera do hero (parallax das formas desfocadas)
+//
+// scrub com atraso: as camadas "alcançam" o scroll com folga, o que dá a
+// sensação de profundidade sem colar no movimento do dedo.
 // ──────────────────────────────────────────────
-function initHeaderBehavior(): void {
+function initHeroAmbience(): void {
+  const hero = document.getElementById("hero");
+  if (!hero) return;
+
+  const layers = gsap.utils.toArray<HTMLElement>("#hero .absolute > div");
+  if (!layers.length) return;
+
+  layers.forEach((layer, i) => {
+    gsap.to(layer, {
+      yPercent: 10 + i * 5,
+      ease: "none",
+      scrollTrigger: {
+        trigger: hero,
+        start: "top top",
+        end: "bottom top",
+        scrub: 0.8,
+      },
+    });
+  });
+}
+
+// ──────────────────────────────────────────────
+// 4. Header
+//
+// A pintura do fundo (cor + blur + sombra) vive num ::before que só transiciona
+// opacidade — backdrop-filter não interpola de "ausente" para "presente", que
+// era o motivo do header estalar ao rolar.
+// ──────────────────────────────────────────────
+function initHeader(): void {
   const header = document.getElementById("header");
   if (!header) return;
 
-  const updateHeader = () => {
-    if (window.scrollY > 80) {
-      header.classList.add("bg-white/95", "backdrop-blur-md", "shadow-sm");
-      header.classList.remove("bg-white/0");
-    } else {
-      header.classList.remove("bg-white/95", "backdrop-blur-md", "shadow-sm");
-      header.classList.add("bg-white/0");
-    }
+  const apply = (on: boolean): void => {
+    header.classList.toggle("is-scrolled", on);
   };
 
-  window.addEventListener("scroll", updateHeader, { passive: true });
-  updateHeader();
+  apply(window.scrollY > HEADER_OFFSET);
+
+  ScrollTrigger.create({
+    start: HEADER_OFFSET,
+    end: "max",
+    onToggle: (self) => apply(self.isActive),
+  });
 }
 
 // ──────────────────────────────────────────────
-// 4. Mobile menu toggle
+// 5. Menu mobile
 // ──────────────────────────────────────────────
 function initMobileMenu(): void {
   const toggle = document.getElementById("mobile-toggle");
   const menu = document.getElementById("mobile-menu");
   if (!toggle || !menu) return;
 
-  toggle.addEventListener("click", () => {
-    const isOpen = !menu.classList.contains("hidden");
-    menu.classList.toggle("hidden");
-    toggle.classList.toggle("hamburger-active");
+  const links = menu.querySelectorAll<HTMLElement>(
+    ".mobile-nav-link, .btn-primary",
+  );
+  let isOpen = false;
+  let tl: gsap.core.Timeline | null = null;
 
-    if (!isOpen) {
-      // Animate menu items in
-      const links = menu.querySelectorAll(".mobile-nav-link, .btn-primary");
-      gsap.fromTo(
-        links,
-        { opacity: 0, x: -20 },
-        { opacity: 1, x: 0, duration: 0.3, stagger: 0.05, ease: "power2.out" },
-      );
+  const setOpen = (next: boolean): void => {
+    if (next === isOpen) return;
+    isOpen = next;
+    toggle.classList.toggle("hamburger-active", isOpen);
+    toggle.setAttribute("aria-expanded", String(isOpen));
+    toggle.setAttribute("aria-label", isOpen ? "Fechar menu" : "Abrir menu");
+    tl?.kill();
+
+    if (isOpen) {
+      menu.classList.remove("hidden");
+      if (prefersReduced()) {
+        gsap.set([menu, links], { clearProps: "all" });
+        return;
+      }
+      tl = gsap
+        .timeline()
+        .fromTo(
+          menu,
+          { height: 0, opacity: 0 },
+          { height: "auto", opacity: 1, duration: 0.45 },
+        )
+        .fromTo(
+          links,
+          { opacity: 0, y: -8 },
+          { opacity: 1, y: 0, duration: 0.4, stagger: 0.045 },
+          "-=0.3",
+        );
+      return;
     }
-  });
 
-  // Close menu when a link is clicked
-  const navLinks = menu.querySelectorAll("a");
-  navLinks.forEach((link) => {
-    link.addEventListener("click", () => {
+    const close = (): void => {
       menu.classList.add("hidden");
-      toggle.classList.remove("hamburger-active");
-    });
+      gsap.set(menu, { clearProps: "height,opacity" });
+      gsap.set(links, { clearProps: "opacity,transform" });
+    };
+
+    if (prefersReduced()) {
+      close();
+      return;
+    }
+    tl = gsap
+      .timeline({ onComplete: close })
+      .to(links, { opacity: 0, y: -6, duration: 0.18, stagger: 0.02 })
+      .to(menu, { height: 0, opacity: 0, duration: 0.3 }, "-=0.1");
+  };
+
+  toggle.addEventListener("click", () => setOpen(!isOpen));
+  menu.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => setOpen(false));
   });
 }
 
 // ──────────────────────────────────────────────
-// 5. Smooth scroll for anchor links
+// 6. Âncoras
+//
+// Duração proporcional à distância (0.6s–1.4s). O scroll nativo levava vários
+// segundos para percorrer a página inteira, sem forma de ajustar.
 // ──────────────────────────────────────────────
 function initSmoothScroll(): void {
   document
     .querySelectorAll<HTMLAnchorElement>('a[href^="#"]')
     .forEach((anchor) => {
       anchor.addEventListener("click", (e: Event) => {
+        const href = anchor.getAttribute("href");
+        if (!href || href === "#") return;
+        const target = document.querySelector<HTMLElement>(href);
+        if (!target) return;
+
         e.preventDefault();
-        const target = document.querySelector(
-          anchor.getAttribute("href") || "",
-        );
-        if (target) {
-          target.scrollIntoView({ behavior: "smooth", block: "start" });
+        const top =
+          target.getBoundingClientRect().top + window.scrollY - HEADER_OFFSET;
+
+        if (prefersReduced()) {
+          window.scrollTo(0, top);
+          return;
         }
+
+        gsap.to(window, {
+          duration: gsap.utils.clamp(
+            0.6,
+            1.4,
+            Math.abs(top - window.scrollY) / 2400,
+          ),
+          scrollTo: { y: top, autoKill: true },
+          overwrite: true,
+        });
       });
     });
-}
-
-// ──────────────────────────────────────────────
-// 6. Parallax subtle effect on hero decorations
-// ──────────────────────────────────────────────
-function initParallax(): void {
-  const heroDecorations = document.querySelectorAll("#hero .absolute > div");
-
-  window.addEventListener(
-    "scroll",
-    () => {
-      const scrollY = window.scrollY;
-      heroDecorations.forEach((dec, i) => {
-        const speed = 0.15 + i * 0.05;
-        (dec as HTMLElement).style.transform =
-          `translateY(${scrollY * speed}px)`;
-      });
-    },
-    { passive: true },
-  );
 }
 
 // ──────────────────────────────────────────────
@@ -200,10 +287,6 @@ function initAreaModal(): void {
   if (!backdrop || !dialog || !mediaHolder || !titleEl || !bodyEl || !iconHolder)
     return;
 
-  const prefersReducedMotion = window.matchMedia(
-    "(prefers-reduced-motion: reduce)",
-  ).matches;
-
   let lastFocused: HTMLElement | null = null;
   let isOpen = false;
   let tl: gsap.core.Timeline | null = null;
@@ -253,29 +336,25 @@ function initAreaModal(): void {
     dialog.scrollTop = 0;
     closeBtn?.focus();
 
-    if (prefersReducedMotion) {
+    if (prefersReduced()) {
       gsap.set([backdrop, dialog], { clearProps: "opacity,transform" });
       return;
     }
 
     tl?.kill();
     tl = gsap.timeline();
-    tl.fromTo(
-      backdrop,
-      { opacity: 0 },
-      { opacity: 1, duration: 0.3, ease: "power1.out" },
-    )
+    tl.fromTo(backdrop, { opacity: 0 }, { opacity: 1, duration: 0.35 })
       .fromTo(
         dialog,
-        { opacity: 0, y: 32, scale: 0.94 },
-        { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: "power3.out" },
-        "-=0.15",
+        { opacity: 0, y: 28, scale: 0.96 },
+        { opacity: 1, y: 0, scale: 1, duration: 0.6 },
+        "-=0.2",
       )
       .fromTo(
         [mediaHolder, iconHolder, titleEl, bodyEl],
-        { opacity: 0, y: 16 },
-        { opacity: 1, y: 0, duration: 0.4, stagger: 0.08, ease: "power2.out" },
-        "-=0.3",
+        { opacity: 0, y: 14 },
+        { opacity: 1, y: 0, duration: 0.45, stagger: 0.07 },
+        "-=0.38",
       );
   };
 
@@ -294,7 +373,7 @@ function initAreaModal(): void {
       lastFocused?.focus();
     };
 
-    if (prefersReducedMotion) {
+    if (prefersReduced()) {
       finish();
       return;
     }
@@ -303,11 +382,15 @@ function initAreaModal(): void {
     tl = gsap.timeline({ onComplete: finish });
     tl.to(dialog, {
       opacity: 0,
-      y: 24,
-      scale: 0.96,
-      duration: 0.3,
+      y: 20,
+      scale: 0.97,
+      duration: 0.28,
       ease: "power2.in",
-    }).to(backdrop, { opacity: 0, duration: 0.25, ease: "power1.in" }, "-=0.2");
+    }).to(
+      backdrop,
+      { opacity: 0, duration: 0.24, ease: "power1.in" },
+      "-=0.18",
+    );
   };
 
   triggers.forEach((trigger) => {
@@ -332,12 +415,32 @@ function initAreaModal(): void {
 // Initialize everything on DOM ready
 // ──────────────────────────────────────────────
 document.addEventListener("DOMContentLoaded", () => {
-  initHeroAnimation();
-  initScrollAnimations();
-  initHeaderBehavior();
+  const mm = gsap.matchMedia();
+
+  // Quem pede menos movimento recebe o conteúdo assentado, sem tween algum.
+  mm.add("(prefers-reduced-motion: reduce)", () => {
+    // Nenhum tween é criado neste ramo, então não há estilo inline do GSAP
+    // para competir com o CSS. A classe assenta o conteúdo de imediato,
+    // inclusive se a preferência mudar no meio da sessão (o matchMedia
+    // reverte o ramo animado e este assume).
+    document.documentElement.classList.add("motion-reduced");
+    return () => document.documentElement.classList.remove("motion-reduced");
+  });
+
+  mm.add("(prefers-reduced-motion: no-preference)", () => {
+    initHero();
+    initReveals();
+    initHeroAmbience();
+  });
+
+  initHeader();
   initMobileMenu();
   initSmoothScroll();
-  initParallax();
   initConversionTracking();
   initAreaModal();
+
+  // Fontes e imagens mudam a altura da página: reposiciona os gatilhos depois
+  // que o layout assenta, senão as revelações disparam fora do lugar.
+  window.addEventListener("load", () => ScrollTrigger.refresh());
+  document.fonts?.ready.then(() => ScrollTrigger.refresh());
 });
