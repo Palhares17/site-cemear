@@ -26,3 +26,8 @@ planejamento_CMA(1).html
 
 # Claude Code (configuração local do editor/agente)
 .claude/
+
+# Este projeto usa npm: o deploy roda `npm ci` com o package-lock.json.
+# Rodar pnpm re-resolve os ranges do package.json e diverge do lockfile.
+pnpm-lock.yaml
+pnpm-workspace.yaml
