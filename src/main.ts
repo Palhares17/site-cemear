@@ -76,7 +76,9 @@ function initReveals(): void {
         duration: 0.9,
         stagger: { each: 0.07, from: "start" },
         overwrite: true,
-        onComplete: () => gsap.set(batch, { willChange: "auto" }),
+        onComplete: () => {
+          gsap.set(batch, { willChange: "auto" });
+        },
       });
     },
   });
